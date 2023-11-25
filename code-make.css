@@ -190,6 +190,9 @@ body {
                     opacity: 0.0;
                     border: 0px solid cyan;  /*TEST*/
                 }
+                .nav-mov-dropdown-item-title::selection {
+                    background-color: inherit;
+                }
 }
 
 @media only screen and (min-width: 700px) {
