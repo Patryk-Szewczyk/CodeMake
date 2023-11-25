@@ -31,7 +31,7 @@ var navMob_dropdownButton_OBJ = {
             button.addEventListener(ev, function () {
                 if (_this.isEnable === false) { // Show target:
                     // Switch:
-                    _this.isEnable = true;
+                    setTimeout(function () { return _this.isEnable = true; }, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%))";
                     button.style.transitionDuration = 0.35 + "s";
@@ -62,7 +62,7 @@ var navMob_dropdownButton_OBJ = {
                 }
                 else if (_this.isEnable === true) { // Hide target:
                     // Switch:
-                    _this.isEnable = false;
+                    setTimeout(function () { return _this.isEnable = false; }, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom right, rgb(70,70,70), rgb(70,70,70))";
                     button.style.transitionDuration = 0.35 + "s";
