@@ -18,7 +18,7 @@ const navMob_dropdownButton_OBJ: {
     isEnable: boolean
 } = {
     isEnable: false,
-    action() {
+    action(): void {
         const button: HTMLDivElement = document.querySelector('div.nav-mob-dropdown-button');
         const target: HTMLDivElement = document.querySelector('div.nav-mob-dropdown-target');
         const strip_AR: any[] = [];
@@ -34,7 +34,7 @@ const navMob_dropdownButton_OBJ: {
             button.addEventListener(ev, () => {
                 if (this.isEnable === false) {   // Show target:
                     // Switch:
-                    this.isEnable = true;
+                    setTimeout(() => this.isEnable = true, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%))";
                     button.style.transitionDuration = 0.35 + "s";
@@ -62,7 +62,7 @@ const navMob_dropdownButton_OBJ: {
                     strip_AR[2].style.transitionDuration = 0.35 + "s";
                 } else if (this.isEnable === true) {  // Hide target:
                     // Switch:
-                    this.isEnable = false;
+                    setTimeout(() => this.isEnable = false, 800);
                     // Target:
                         button.style.backgroundImage = "linear-gradient(to bottom right, rgb(70,70,70), rgb(70,70,70))";
                         button.style.transitionDuration = 0.35 + "s";
