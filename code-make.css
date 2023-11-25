@@ -1,96 +1,197 @@
-const page_OBJ: {
-    setPage: Function
-} = {
-    setPage(): void {
-        let hdr: HTMLDivElement = document.querySelector('div.header');
-        ['load', 'resize'].forEach((ev) => {
-            window.addEventListener(ev, () => {
-                let hgt: string = String(window.innerHeight);
-                hdr.style.height = hgt + 'px';
-            }, false);
-        });
-    }
-};
-page_OBJ.setPage();
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
-const navMob_dropdownButton_OBJ: {
-    action: Function,
-    isEnable: boolean
-} = {
-    isEnable: false,
-    action() {
-        const button: HTMLDivElement = document.querySelector('div.nav-mob-dropdown-button');
-        const target: HTMLDivElement = document.querySelector('div.nav-mob-dropdown-target');
-        const strip_AR: any[] = [];
-        for (let i: number = 0; i < 3; i++) {
-            strip_AR[i] = document.querySelectorAll('div.nav-mob-dropdown-strip')[i];
-        };
-        const iconTitle_AR: any[] = [];
-        const iconTitles_Length: number = document.querySelectorAll('div.nav-mov-dropdown-item-title').length;
-        for (let i: number = 0; i < iconTitles_Length; i++) {
-            iconTitle_AR[i] = document.querySelectorAll('div.nav-mov-dropdown-item-title')[i];
-        };
-        ['click', 'touchend'].forEach((ev) => {
-            button.addEventListener(ev, () => {
-                if (this.isEnable === false) {   // Show target:
-                    // Switch:
-                    this.isEnable = true;
-                    // Target:
-                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%))";
-                    button.style.transitionDuration = 0.35 + "s";
-                    for (let i: number = 0; i < 3; i++) {
-                        strip_AR[i].style.backgroundColor = "rgb(50,50,50)";
-                        strip_AR[i].style.transitionDuration = 0.0 + "s";
-                    };
-                    target.style.height = 265 + "px";
-                    target.style.transitionDuration = 0.35 + "s";
-                    setTimeout(() => {
-                        target.style.width = 250 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
-                        for (let i: number = 0; i < iconTitles_Length; i++) {
-                            iconTitle_AR[i].style.width = 190 + "px";
-                            iconTitle_AR[i].style.opacity = 1.0;
-                            iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
-                        };
-                    }, 350);
-                    // Strips:
-                    strip_AR[1].style.width = 0 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
-                    strip_AR[0].style.transform = "rotate(45deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
-                    strip_AR[2].style.transform = "rotate(-45deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
-                } else if (this.isEnable === true) {  // Hide target:
-                    // Switch:
-                    this.isEnable = false;
-                    // Target:
-                        button.style.backgroundImage = "linear-gradient(to bottom right, rgb(70,70,70), rgb(70,70,70))";
-                        button.style.transitionDuration = 0.35 + "s";
-                        for (let i: number = 0; i < 3; i++) {
-                            strip_AR[i].style.backgroundColor = "#BBB";
-                            strip_AR[i].style.transitionDuration = 0.0 + "s";
-                        };
-                        target.style.width = 60 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
-                        for (let i: number = 0; i < iconTitles_Length; i++) {
-                            iconTitle_AR[i].style.width = 0 + "px";
-                            iconTitle_AR[i].style.opacity = 0.0;
-                            iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
-                        };
-                    setTimeout(() => {
-                        target.style.height = 0 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
-                    }, 350);
-                    // Strips:
-                    strip_AR[1].style.width = 30 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
-                    strip_AR[0].style.transform = "rotate(0deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
-                    strip_AR[2].style.transform = "rotate(0deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+@media only screen and (min-width: 0px) {
+    .header {
+        width: 100%;
+        /*height: TS;*/
+        background-color: #777;
+    }
+        .navbar-mobile {
+            width: 100%;
+            height: 60px;
+            position: relative;
+            background-color: rgb(30,30,30);
+        }
+            .logo-box {
+                width: 50px;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-image: linear-gradient(to bottom right, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%));
+                color: white;
+                font-family: 'M PLUS Code Latin', monospace;
+                font-size: 190%;
+                font-weight: 600;
+                text-shadow: 1px 1px 1px rgba(0,0,0,0.5), -1px -1px 1px rgba(0,0,0,0.5), -1px 1px 1px rgba(0,0,0,0.5), 1px -1px 1px rgba(0,0,0,0.5);
+            }
+            .nav-mob-left-buttons {
+                width: auto;
+                height: auto;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+            }
+                .nav-mob-icon-button {
+                    width: 36px;
+                    height: 60px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: inherit;
                 }
-            }, false);
-        });
-    },
-};
-navMob_dropdownButton_OBJ.action();
+                    .bi {
+                        color: #BBB;
+                        transition-duration: 0.25s;
+                    }
+                    .nav-mob-icon-button:hover {
+                        cursor: pointer;
+                    }
+                    .nav-mob-icon-button:nth-child(1):hover .bi {
+                        color: hsl(37, 100%, 49%);
+                        transition-duration: 0.25s;
+                    }
+                    .nav-mob-icon-button:nth-child(2):hover .bi {
+                        color: hsl(37, 100%, 49%);
+                        transition-duration: 0.25s;
+                    }
+                    .nav-mob-icon-button:nth-child(3):hover .bi {
+                        color: hsl(37, 100%, 49%);
+                        transition-duration: 0.25s;
+                    }
+                    .nav-mob-icon-button:nth-child(4):hover .bi {
+                        color: hsl(37, 100%, 49%);
+                        transition-duration: 0.25s;
+                    }
+                .nav-mob-dropdown-button {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0px 0px 0px 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgb(50,50,50);
+                }
+                .nav-mob-dropdown-button:hover {
+                    cursor: pointer;
+                }
+                    .nav-mob-dropdown-strip-group {
+                        width: 0px;
+                        height: 0px;
+                        position: relative;
+                        top: -1.5px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                        .nav-mob-dropdown-strip {
+                            width: 30px;
+                            height: 3px;
+                            position: absolute;
+                            background-color: #BBB;
+                        }
+                        .nav-mob-dropdown-strip:nth-child(1) {
+                            top: -10px;
+                            transform-origin: left;
+                        }
+                        .nav-mob-dropdown-strip:nth-child(2) {
+                            top: 0px;
+                        }
+                        .nav-mob-dropdown-strip:nth-child(3) {
+                            top: 10px;
+                            transform-origin: left;
+                            transform: rotate();
+                        }
+        .nav-mob-dropdown-target {
+            width: 60px;
+            height: 0px;  /*500px*/
+            position: absolute;
+            top: 60px;
+            right: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(70,70,70);
+            overflow: hidden;
+        }
+            .nav-mov-dropdown-item {
+                width: 100%;
+                height: 50px;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                border: 0px solid red;  /*TEST*/
+            }
+                .nav-mov-dropdown-item:hover {
+                    cursor: pointer;
+                }
+                .nav-mov-dropdown-item:nth-child(1):hover .bi, .nav-mov-dropdown-item:nth-child(1):hover .nav-mov-dropdown-item-title {
+                    color: hsl(37, 100%, 49%);
+                    transition-duration: 0.25s;
+                }
+                .nav-mov-dropdown-item:nth-child(2):hover .bi, .nav-mov-dropdown-item:nth-child(2):hover .nav-mov-dropdown-item-title {
+                    color: hsl(37, 100%, 49%);
+                    transition-duration: 0.25s;
+                }
+                .nav-mov-dropdown-item:nth-child(3):hover .bi, .nav-mov-dropdown-item:nth-child(3):hover .nav-mov-dropdown-item-title {
+                    color: hsl(37, 100%, 49%);
+                    transition-duration: 0.25s;
+                }
+                .nav-mov-dropdown-item:nth-child(4):hover .bi, .nav-mov-dropdown-item:nth-child(4):hover .nav-mov-dropdown-item-title {
+                    color: hsl(37, 100%, 49%);
+                    transition-duration: 0.25s;
+                }
+                .nav-mov-dropdown-item:nth-child(5):hover .bi, .nav-mov-dropdown-item:nth-child(5):hover .nav-mov-dropdown-item-title {
+                    color: hsl(37, 100%, 49%);
+                    transition-duration: 0.25s;
+                }
+                .nav-mov-dropdown-item-icon {
+                    width: 65px;
+                    height: 50px;
+                    padding-left: 5px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    border: 0px solid lime;  /*TEST*/
+                }
+                .nav-mov-dropdown-item-title {
+                    width: 0px;
+                    height: 50px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: #BBB;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+                    overflow: hidden;
+                    opacity: 0.0;
+                    border: 0px solid cyan;  /*TEST*/
+                }
+}
+
+@media only screen and (min-width: 700px) {
+    
+}
