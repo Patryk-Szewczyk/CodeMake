@@ -33,7 +33,7 @@ var navMob_dropdownButton_OBJ = {
                     // Switch:
                     setTimeout(function () { return _this.isEnable = true; }, 800);
                     // Target:
-                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%))";
+                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 35%), hsl(37, 100%, 49%), hsl(37, 90%, 67%))";
                     button.style.transitionDuration = 0.35 + "s";
                     for (var i = 0; i < 3; i++) {
                         strip_AR[i].style.backgroundColor = "rgb(50,50,50)";
@@ -64,7 +64,7 @@ var navMob_dropdownButton_OBJ = {
                     // Switch:
                     setTimeout(function () { return _this.isEnable = false; }, 800);
                     // Target:
-                    button.style.backgroundImage = "linear-gradient(to bottom right, rgb(70,70,70), rgb(70,70,70))";
+                    button.style.backgroundImage = "linear-gradient(to bottom right, rgb(50,50,50), rgb(50,50,50))";
                     button.style.transitionDuration = 0.35 + "s";
                     for (var i = 0; i < 3; i++) {
                         strip_AR[i].style.backgroundColor = "#BBB";
@@ -96,3 +96,68 @@ var navMob_dropdownButton_OBJ = {
     },
 };
 navMob_dropdownButton_OBJ.action();
+var navDesk_dropdownButton_OBJ = {
+    action: function () {
+        var dropdownButton_AR = [];
+        var dropdownTitle_AR = [];
+        var ballTop_AR = [];
+        var topMenuIcon_AR = [];
+        var toBallTopARvalInc = 0;
+        var dropdownButtons_Length = document.querySelectorAll('div.nav-dsk-dropdown-item').length;
+        var dropdownButtonsGroup_EL = document.querySelector('div.top-nav-buttons-group');
+        var ball_EL = document.querySelector('div.nav-dsk-choose-ball');
+        for (var i = 0; i < dropdownButtons_Length; i++) {
+            //const topMenuItem: any = document.querySelectorAll('div.nav-dsk-dropdown-item')[0];
+            //const topMenuItem_Height: number = topMenuItem.getBoundingClientRect().height;
+            ballTop_AR[i] = toBallTopARvalInc;
+            toBallTopARvalInc += 50;
+            //alert(topMenuItem_Height);
+        }
+        ;
+        for (var i = 0; i < dropdownButtons_Length; i++) {
+            dropdownButton_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item')[i];
+            dropdownTitle_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-title-item')[i];
+            topMenuIcon_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item-icon')[i];
+            dropdownButton_AR[i].addEventListener('mouseover', function (e) {
+                var element = e.currentTarget;
+                var element_ID = Number(element.id);
+                for (var i_1 = 0; i_1 < dropdownButtons_Length; i_1++) {
+                    if (element_ID === i_1) { // Slide ON:
+                        dropdownTitle_AR[i_1].style.width = 150 + "px";
+                        dropdownTitle_AR[i_1].style.padding = "0px 17px";
+                        dropdownTitle_AR[i_1].style.transitionDuration = 0.3 + "s";
+                        ball_EL.style.top = ballTop_AR[i_1] + "px";
+                        ball_EL.style.left = 35 + "%";
+                        ball_EL.style.transitionDuration = 0.3 + "s";
+                        topMenuIcon_AR[i_1].style.left = 20 + "px";
+                        topMenuIcon_AR[i_1].style.transitionDuration = 0.3 + "s";
+                    }
+                    else if (element_ID !== i_1) { // Slide OFF:
+                        dropdownTitle_AR[i_1].style.width = 0 + "%";
+                        dropdownTitle_AR[i_1].style.padding = "0px";
+                        dropdownTitle_AR[i_1].style.transitionDuration = 0.3 + "s";
+                        topMenuIcon_AR[i_1].style.left = 0 + "px";
+                        topMenuIcon_AR[i_1].style.transitionDuration = 0.3 + "s";
+                    }
+                }
+                ;
+            }, false);
+            dropdownButtonsGroup_EL.addEventListener('mouseout', function (e) {
+                var element = e.currentTarget;
+                var element_ID = Number(element.id);
+                for (var i_2 = 0; i_2 < dropdownButtons_Length; i_2++) {
+                    dropdownTitle_AR[i_2].style.width = 0 + "%";
+                    dropdownTitle_AR[i_2].style.padding = "0px";
+                    dropdownTitle_AR[i_2].style.transitionDuration = 0.3 + "s";
+                    ball_EL.style.left = 0 + "%";
+                    ball_EL.style.transitionDuration = 0.3 + "s";
+                    topMenuIcon_AR[i_2].style.left = 0 + "px";
+                    topMenuIcon_AR[i_2].style.transitionDuration = 0.3 + "s";
+                }
+                ;
+            }, false);
+        }
+        ;
+    }
+};
+navDesk_dropdownButton_OBJ.action();
