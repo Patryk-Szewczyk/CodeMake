@@ -119,7 +119,7 @@ const navDesk_dropdownButton_OBJ: {
                         dropdownTitle_AR[i].style.padding = "0px 17px";
                         dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         ball_EL.style.top = ballTop_AR[i] + "px";
-                        ball_EL.style.left = 35 + "%";
+                        ball_EL.style.left = 33 + "%";
                         ball_EL.style.transitionDuration = 0.3 + "s";
                         topMenuIcon_AR[i].style.left = 20 + "px";
                         topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
