@@ -36,7 +36,7 @@ const navMob_dropdownButton_OBJ: {
                     // Switch:
                     setTimeout(() => this.isEnable = true, 800);
                     // Target:
-                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 40%), hsl(37, 100%, 49%), hsl(37, 90%, 62%))";
+                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 35%), hsl(37, 100%, 49%), hsl(37, 90%, 67%))";
                     button.style.transitionDuration = 0.35 + "s";
                     for (let i: number = 0; i < 3; i++) {
                         strip_AR[i].style.backgroundColor = "rgb(50,50,50)";
@@ -64,7 +64,7 @@ const navMob_dropdownButton_OBJ: {
                     // Switch:
                     setTimeout(() => this.isEnable = false, 800);
                     // Target:
-                        button.style.backgroundImage = "linear-gradient(to bottom right, rgb(70,70,70), rgb(70,70,70))";
+                        button.style.backgroundImage = "linear-gradient(to bottom right, rgb(50,50,50), rgb(50,50,50))";
                         button.style.transitionDuration = 0.35 + "s";
                         for (let i: number = 0; i < 3; i++) {
                             strip_AR[i].style.backgroundColor = "#BBB";
@@ -94,3 +94,66 @@ const navMob_dropdownButton_OBJ: {
     },
 };
 navMob_dropdownButton_OBJ.action();
+
+const navDesk_dropdownButton_OBJ: {
+    action: Function
+} = {
+    action () {
+        const dropdownButton_AR: any[] = [];
+        const dropdownTitle_AR: any[] = [];
+        const ballTop_AR: number[] = [];
+        const topMenuIcon_AR: any[] = [];
+        let toBallTopARvalInc: number = 0;
+        const dropdownButtons_Length: number = document.querySelectorAll('div.nav-dsk-dropdown-item').length;
+        const dropdownButtonsGroup_EL: any = document.querySelector('div.top-nav-buttons-group');
+        const ball_EL: any = document.querySelector('div.nav-dsk-choose-ball');
+        for (let i: number = 0; i < dropdownButtons_Length; i++) {
+            //const topMenuItem: any = document.querySelectorAll('div.nav-dsk-dropdown-item')[0];
+            //const topMenuItem_Height: number = topMenuItem.getBoundingClientRect().height;
+            ballTop_AR[i] = toBallTopARvalInc;
+            toBallTopARvalInc += 50;
+            //alert(topMenuItem_Height);
+        };
+        for (let i: number = 0; i < dropdownButtons_Length; i++) {
+            dropdownButton_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item')[i];
+            dropdownTitle_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-title-item')[i];
+            topMenuIcon_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item-icon')[i];
+            dropdownButton_AR[i].addEventListener('mouseover', (e) => {
+                const element: HTMLDivElement = e.currentTarget;
+                const element_ID: number = Number(element.id);
+                for (let i: number = 0; i < dropdownButtons_Length; i++) {
+                    if (element_ID === i) {   // Slide ON:
+                        dropdownTitle_AR[i].style.width = 150 + "px";
+                        dropdownTitle_AR[i].style.padding = "0px 17px";
+                        dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
+                        ball_EL.style.top = ballTop_AR[i] + "px";
+                        ball_EL.style.left = 35 + "%";
+                        ball_EL.style.transitionDuration = 0.3 + "s";
+                        topMenuIcon_AR[i].style.left = 20 + "px";
+                        topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                    } else if (element_ID !== i) {   // Slide OFF:
+                        dropdownTitle_AR[i].style.width = 0 + "%";
+                        dropdownTitle_AR[i].style.padding = "0px";
+                        dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
+                        topMenuIcon_AR[i].style.left = 0 + "px";
+                        topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                    }
+                };
+            }, false);
+            dropdownButtonsGroup_EL.addEventListener('mouseout', (e) => {
+                const element: HTMLDivElement = e.currentTarget;
+                const element_ID: number = Number(element.id);
+                for (let i: number = 0; i < dropdownButtons_Length; i++) {
+                    dropdownTitle_AR[i].style.width = 0 + "%";
+                    dropdownTitle_AR[i].style.padding = "0px";
+                    dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
+                    ball_EL.style.left = 0 + "%";
+                    ball_EL.style.transitionDuration = 0.3 + "s";
+                    topMenuIcon_AR[i].style.left = 0 + "px";
+                    topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                };
+            }, false);
+        };
+    }
+};
+navDesk_dropdownButton_OBJ.action();
