@@ -138,7 +138,7 @@ body {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: rgb(65,65,65);
+            background-color: rgb(45,45,45);   /*OLD: 65*/
             box-shadow: 0px 0px 3px #000;
             overflow: hidden;
         }
@@ -154,7 +154,7 @@ body {
             }
                 .nav-mov-dropdown-item:hover {
                     cursor: pointer;
-                    background-color: #555;
+                    background-color: rgb(53,53,53);
                     transition-duration: 0.3s;
                 }
                 .nav-mov-dropdown-item:nth-child(1):hover .bi, .nav-mov-dropdown-item:nth-child(1):hover .nav-mov-dropdown-item-title {
