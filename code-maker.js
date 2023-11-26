@@ -33,13 +33,8 @@ var navMob_dropdownButton_OBJ = {
                     // Switch:
                     setTimeout(function () { return _this.isEnable = true; }, 800);
                     // Target:
-                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(37, 90%, 35%), hsl(37, 100%, 49%), hsl(37, 90%, 67%))";
+                    button.style.backgroundImage = "linear-gradient(to bottom left, hsl(215, 90%, 35%), hsl(215, 100%, 49%), hsl(215, 90%, 67%))";
                     button.style.transitionDuration = 0.35 + "s";
-                    for (var i = 0; i < 3; i++) {
-                        strip_AR[i].style.backgroundColor = "rgb(50,50,50)";
-                        strip_AR[i].style.transitionDuration = 0.0 + "s";
-                    }
-                    ;
                     target.style.height = 265 + "px";
                     target.style.transitionDuration = 0.35 + "s";
                     setTimeout(function () {
@@ -66,11 +61,6 @@ var navMob_dropdownButton_OBJ = {
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom right, rgb(50,50,50), rgb(50,50,50))";
                     button.style.transitionDuration = 0.35 + "s";
-                    for (var i = 0; i < 3; i++) {
-                        strip_AR[i].style.backgroundColor = "#BBB";
-                        strip_AR[i].style.transitionDuration = 0.0 + "s";
-                    }
-                    ;
                     target.style.width = 60 + "px";
                     target.style.transitionDuration = 0.35 + "s";
                     for (var i = 0; i < iconTitles_Length; i++) {
