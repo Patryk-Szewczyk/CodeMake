@@ -37,7 +37,7 @@ body {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                background-image: linear-gradient(to bottom right, hsl(37, 90%, 35%), hsl(37, 100%, 49%), hsl(37, 90%, 67%));
+                background-image: linear-gradient(to bottom right, hsl(215, 90%, 35%), hsl(215, 100%, 49%), hsl(215, 90%, 67%));
                 color: white;
                 font-family: 'M PLUS Code Latin', monospace;
                 font-size: 190%;
@@ -72,19 +72,19 @@ body {
                         cursor: pointer;
                     }
                     .nav-mob-icon-button:nth-child(1):hover .bi {
-                        color: hsl(37, 100%, 49%);
+                        color: hsl(215, 100%, 49%);
                         transition-duration: 0.25s;
                     }
                     .nav-mob-icon-button:nth-child(2):hover .bi {
-                        color: hsl(37, 100%, 49%);
+                        color: hsl(215, 100%, 49%);
                         transition-duration: 0.25s;
                     }
                     .nav-mob-icon-button:nth-child(3):hover .bi {
-                        color: hsl(37, 100%, 49%);
+                        color: hsl(215, 100%, 49%);
                         transition-duration: 0.25s;
                     }
                     .nav-mob-icon-button:nth-child(4):hover .bi {
-                        color: hsl(37, 100%, 49%);
+                        color: hsl(215, 100%, 49%);
                         transition-duration: 0.25s;
                     }
                 .nav-mob-dropdown-button {
@@ -158,23 +158,23 @@ body {
                     transition-duration: 0.3s;
                 }
                 .nav-mov-dropdown-item:nth-child(1):hover .bi, .nav-mov-dropdown-item:nth-child(1):hover .nav-mov-dropdown-item-title {
-                    color: hsl(37, 100%, 49%);
+                    color: hsl(215, 100%, 49%);
                     transition-duration: 0.25s;
                 }
                 .nav-mov-dropdown-item:nth-child(2):hover .bi, .nav-mov-dropdown-item:nth-child(2):hover .nav-mov-dropdown-item-title {
-                    color: hsl(37, 100%, 49%);
+                    color: hsl(215, 100%, 49%);
                     transition-duration: 0.25s;
                 }
                 .nav-mov-dropdown-item:nth-child(3):hover .bi, .nav-mov-dropdown-item:nth-child(3):hover .nav-mov-dropdown-item-title {
-                    color: hsl(37, 100%, 49%);
+                    color: hsl(215, 100%, 49%);
                     transition-duration: 0.25s;
                 }
                 .nav-mov-dropdown-item:nth-child(4):hover .bi, .nav-mov-dropdown-item:nth-child(4):hover .nav-mov-dropdown-item-title {
-                    color: hsl(37, 100%, 49%);
+                    color: hsl(215, 100%, 49%);
                     transition-duration: 0.25s;
                 }
                 .nav-mov-dropdown-item:nth-child(5):hover .bi, .nav-mov-dropdown-item:nth-child(5):hover .nav-mov-dropdown-item-title {
-                    color: hsl(37, 100%, 49%);
+                    color: hsl(215, 100%, 49%);
                     transition-duration: 0.25s;
                 }
                 .nav-mov-dropdown-item-icon {
