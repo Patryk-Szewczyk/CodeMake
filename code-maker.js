@@ -92,7 +92,7 @@ var navDesk_dropdownButton_OBJ = {
         var dropdownTitle_AR = [];
         var ballTop_AR = [];
         var topMenuIcon_AR = [];
-        var toBallTopARvalInc = 0;
+        var toBallTopARvalInc = 10.5; /*15 - (9 / 2)*/
         var dropdownButtons_Length = document.querySelectorAll('div.nav-dsk-dropdown-item').length;
         var dropdownButtonsGroup_EL = document.querySelector('div.top-nav-buttons-group');
         var ball_EL = document.querySelector('div.nav-dsk-choose-ball');
@@ -100,7 +100,7 @@ var navDesk_dropdownButton_OBJ = {
             //const topMenuItem: any = document.querySelectorAll('div.nav-dsk-dropdown-item')[0];
             //const topMenuItem_Height: number = topMenuItem.getBoundingClientRect().height;
             ballTop_AR[i] = toBallTopARvalInc;
-            toBallTopARvalInc += 50;
+            toBallTopARvalInc += 45;
             //alert(topMenuItem_Height);
         }
         ;
@@ -113,11 +113,11 @@ var navDesk_dropdownButton_OBJ = {
                 var element_ID = Number(element.id);
                 for (var i_1 = 0; i_1 < dropdownButtons_Length; i_1++) {
                     if (element_ID === i_1) { // Slide ON:
-                        dropdownTitle_AR[i_1].style.width = 150 + "px";
+                        dropdownTitle_AR[i_1].style.width = "auto"; /*130px*/
                         dropdownTitle_AR[i_1].style.padding = "0px 17px";
                         dropdownTitle_AR[i_1].style.transitionDuration = 0.3 + "s";
                         ball_EL.style.top = ballTop_AR[i_1] + "px";
-                        ball_EL.style.left = 33 + "%";
+                        ball_EL.style.left = 40 + "%";
                         ball_EL.style.transitionDuration = 0.3 + "s";
                         topMenuIcon_AR[i_1].style.left = 20 + "px";
                         topMenuIcon_AR[i_1].style.transitionDuration = 0.3 + "s";
