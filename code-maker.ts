@@ -95,7 +95,7 @@ const navDesk_dropdownButton_OBJ: {
         const dropdownTitle_AR: any[] = [];
         const ballTop_AR: number[] = [];
         const topMenuIcon_AR: any[] = [];
-        let toBallTopARvalInc: number = 0;
+        let toBallTopARvalInc: number = 10.5;   /*15 - (9 / 2)*/
         const dropdownButtons_Length: number = document.querySelectorAll('div.nav-dsk-dropdown-item').length;
         const dropdownButtonsGroup_EL: any = document.querySelector('div.top-nav-buttons-group');
         const ball_EL: any = document.querySelector('div.nav-dsk-choose-ball');
@@ -103,7 +103,7 @@ const navDesk_dropdownButton_OBJ: {
             //const topMenuItem: any = document.querySelectorAll('div.nav-dsk-dropdown-item')[0];
             //const topMenuItem_Height: number = topMenuItem.getBoundingClientRect().height;
             ballTop_AR[i] = toBallTopARvalInc;
-            toBallTopARvalInc += 50;
+            toBallTopARvalInc += 45;
             //alert(topMenuItem_Height);
         };
         for (let i: number = 0; i < dropdownButtons_Length; i++) {
@@ -115,11 +115,11 @@ const navDesk_dropdownButton_OBJ: {
                 const element_ID: number = Number(element.id);
                 for (let i: number = 0; i < dropdownButtons_Length; i++) {
                     if (element_ID === i) {   // Slide ON:
-                        dropdownTitle_AR[i].style.width = 150 + "px";
+                        dropdownTitle_AR[i].style.width = "auto";   /*130px*/
                         dropdownTitle_AR[i].style.padding = "0px 17px";
                         dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         ball_EL.style.top = ballTop_AR[i] + "px";
-                        ball_EL.style.left = 33 + "%";
+                        ball_EL.style.left = 40 + "%";
                         ball_EL.style.transitionDuration = 0.3 + "s";
                         topMenuIcon_AR[i].style.left = 20 + "px";
                         topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
