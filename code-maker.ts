@@ -2,16 +2,49 @@ const page_OBJ: {
     setPage: Function
 } = {
     setPage(): void {
-        let hdr: HTMLDivElement = document.querySelector('div.header');
+        let header: HTMLDivElement = document.querySelector('div.header');
+        //addEventListener('load', () => {
+            const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
+            DESKTOP_navbar.style.top = window.innerHeight + "px";
+            DESKTOP_navbar.style.transitionDuration = 0.0 + "s";
+        //}, false);
         ['load', 'resize'].forEach((ev) => {
             window.addEventListener(ev, () => {
-                let hgt: string = String(window.innerHeight);
-                hdr.style.height = hgt + 'px';
+                let pageHeight: string = String(window.innerHeight);
+                header.style.height = pageHeight + 'px';
             }, false);
         });
     }
 };
 page_OBJ.setPage();
+
+const pageIntro_OBJ: {
+    active_AEL: Function
+} = {
+    active_AEL() {
+        // Desktop navbar:
+        const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
+        // Desktop content:
+        const DESKTOP_contentCol_AR: any[] = [];
+        const DESKTOP_contentCol_Length: number = document.querySelectorAll('section.dsk-content-col').length;
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                DESKTOP_navbar.style.top = 0 + "px";
+                DESKTOP_navbar.style.transitionDuration = 0.5 + "s";
+                setTimeout(() => {
+                    const header_EL: HTMLDivElement = document.querySelector('div.header');
+                    header_EL.style.backgroundColor = "transparent";
+                    for (let i: number = 0; i < DESKTOP_contentCol_Length; i++) {
+                        DESKTOP_contentCol_AR[i] = document.querySelectorAll('section.dsk-content-col')[i];
+                        DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                        DESKTOP_contentCol_AR[i].style.transitionDuration = 0.5 + 's';
+                    };
+                }, 500);
+            }, 500);
+        }, false);
+    }
+};
+pageIntro_OBJ.active_AEL();
 
 const navMob_dropdownButton_OBJ: {
     action: Function,
@@ -37,49 +70,49 @@ const navMob_dropdownButton_OBJ: {
                     setTimeout(() => this.isEnable = true, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom left, hsl(215, 90%, 35%), hsl(215, 100%, 49%), hsl(215, 90%, 67%))";
-                    button.style.transitionDuration = 0.35 + "s";
+                    button.style.transitionDuration = 0.3 + "s";
                     target.style.height = 265 + "px";
-                    target.style.transitionDuration = 0.35 + "s";
+                    target.style.transitionDuration = 0.3 + "s";
                     setTimeout(() => {
                         target.style.width = 250 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
+                        target.style.transitionDuration = 0.3 + "s";
                         for (let i: number = 0; i < iconTitles_Length; i++) {
                             iconTitle_AR[i].style.width = 190 + "px";
                             iconTitle_AR[i].style.opacity = 1.0;
-                            iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
+                            iconTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         };
-                    }, 350);
+                    }, 300);
                     // Strips:
                     strip_AR[1].style.width = 0 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
+                    strip_AR[1].style.transitionDuration = 0.15 + "s";
                     strip_AR[0].style.transform = "rotate(45deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
+                    strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(-45deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
+                    strip_AR[2].style.transitionDuration = 0.3 + "s";
                 } else if (this.isEnable === true) {  // Hide target:
                     // Switch:
                     setTimeout(() => this.isEnable = false, 800);
                     // Target:
                         button.style.backgroundImage = "linear-gradient(to bottom right, rgb(50,50,50), rgb(50,50,50))";
-                        button.style.transitionDuration = 0.35 + "s";
+                        button.style.transitionDuration = 0.3 + "s";
                         target.style.width = 60 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
+                        target.style.transitionDuration = 0.3 + "s";
                         for (let i: number = 0; i < iconTitles_Length; i++) {
                             iconTitle_AR[i].style.width = 0 + "px";
                             iconTitle_AR[i].style.opacity = 0.0;
-                            iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
+                            iconTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         };
                     setTimeout(() => {
                         target.style.height = 0 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
-                    }, 350);
+                        target.style.transitionDuration = 0.3 + "s";
+                    }, 300);
                     // Strips:
                     strip_AR[1].style.width = 30 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
+                    strip_AR[1].style.transitionDuration = 0.15 + "s";
                     strip_AR[0].style.transform = "rotate(0deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
+                    strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(0deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
+                    strip_AR[2].style.transitionDuration = 0.3 + "s";
                 }
             }, false);
         });
