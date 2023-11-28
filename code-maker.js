@@ -1,15 +1,46 @@
 var page_OBJ = {
     setPage: function () {
-        var hdr = document.querySelector('div.header');
+        var header = document.querySelector('div.header');
+        //addEventListener('load', () => {
+        var DESKTOP_navbar = document.querySelector('nav.navbar-desktop');
+        DESKTOP_navbar.style.top = window.innerHeight + "px";
+        DESKTOP_navbar.style.transitionDuration = 0.0 + "s";
+        //}, false);
         ['load', 'resize'].forEach(function (ev) {
             window.addEventListener(ev, function () {
-                var hgt = String(window.innerHeight);
-                hdr.style.height = hgt + 'px';
+                var pageHeight = String(window.innerHeight);
+                header.style.height = pageHeight + 'px';
             }, false);
         });
     }
 };
 page_OBJ.setPage();
+var pageIntro_OBJ = {
+    active_AEL: function () {
+        // Desktop navbar:
+        var DESKTOP_navbar = document.querySelector('nav.navbar-desktop');
+        // Desktop content:
+        var DESKTOP_contentCol_AR = [];
+        var DESKTOP_contentCol_Length = document.querySelectorAll('section.dsk-content-col').length;
+        window.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                DESKTOP_navbar.style.top = 0 + "px";
+                DESKTOP_navbar.style.transitionDuration = 0.5 + "s";
+                setTimeout(function () {
+                    var header_EL = document.querySelector('div.header');
+                    header_EL.style.backgroundColor = "transparent";
+                    for (var i = 0; i < DESKTOP_contentCol_Length; i++) {
+                        DESKTOP_contentCol_AR[i] = document.querySelectorAll('section.dsk-content-col')[i];
+                        DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                        DESKTOP_contentCol_AR[i].style.transitionDuration = 0.5 + 's';
+                    }
+                    ;
+                }, 500);
+            }, 500);
+        }, false);
+    }
+};
+pageIntro_OBJ.active_AEL();
 var navMob_dropdownButton_OBJ = {
     isEnable: false,
     action: function () {
@@ -34,52 +65,52 @@ var navMob_dropdownButton_OBJ = {
                     setTimeout(function () { return _this.isEnable = true; }, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom left, hsl(215, 90%, 35%), hsl(215, 100%, 49%), hsl(215, 90%, 67%))";
-                    button.style.transitionDuration = 0.35 + "s";
+                    button.style.transitionDuration = 0.3 + "s";
                     target.style.height = 265 + "px";
-                    target.style.transitionDuration = 0.35 + "s";
+                    target.style.transitionDuration = 0.3 + "s";
                     setTimeout(function () {
                         target.style.width = 250 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
+                        target.style.transitionDuration = 0.3 + "s";
                         for (var i = 0; i < iconTitles_Length; i++) {
                             iconTitle_AR[i].style.width = 190 + "px";
                             iconTitle_AR[i].style.opacity = 1.0;
-                            iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
+                            iconTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         }
                         ;
-                    }, 350);
+                    }, 300);
                     // Strips:
                     strip_AR[1].style.width = 0 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
+                    strip_AR[1].style.transitionDuration = 0.15 + "s";
                     strip_AR[0].style.transform = "rotate(45deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
+                    strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(-45deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
+                    strip_AR[2].style.transitionDuration = 0.3 + "s";
                 }
                 else if (_this.isEnable === true) { // Hide target:
                     // Switch:
                     setTimeout(function () { return _this.isEnable = false; }, 800);
                     // Target:
                     button.style.backgroundImage = "linear-gradient(to bottom right, rgb(50,50,50), rgb(50,50,50))";
-                    button.style.transitionDuration = 0.35 + "s";
+                    button.style.transitionDuration = 0.3 + "s";
                     target.style.width = 60 + "px";
-                    target.style.transitionDuration = 0.35 + "s";
+                    target.style.transitionDuration = 0.3 + "s";
                     for (var i = 0; i < iconTitles_Length; i++) {
                         iconTitle_AR[i].style.width = 0 + "px";
                         iconTitle_AR[i].style.opacity = 0.0;
-                        iconTitle_AR[i].style.transitionDuration = 0.35 + "s";
+                        iconTitle_AR[i].style.transitionDuration = 0.3 + "s";
                     }
                     ;
                     setTimeout(function () {
                         target.style.height = 0 + "px";
-                        target.style.transitionDuration = 0.35 + "s";
-                    }, 350);
+                        target.style.transitionDuration = 0.3 + "s";
+                    }, 300);
                     // Strips:
                     strip_AR[1].style.width = 30 + "px";
-                    strip_AR[1].style.transitionDuration = 0.175 + "s";
+                    strip_AR[1].style.transitionDuration = 0.15 + "s";
                     strip_AR[0].style.transform = "rotate(0deg)";
-                    strip_AR[0].style.transitionDuration = 0.35 + "s";
+                    strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(0deg)";
-                    strip_AR[2].style.transitionDuration = 0.35 + "s";
+                    strip_AR[2].style.transitionDuration = 0.3 + "s";
                 }
             }, false);
         });
