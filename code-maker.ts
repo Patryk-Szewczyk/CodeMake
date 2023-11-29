@@ -36,49 +36,63 @@ const pageIntro_OBJ: {
             // Desktop content:
             const DESKTOP_contentCol_AR: any[] = [];
             const DESKTOP_contentCol_Length: number = document.querySelectorAll('div.dsk-content-col').length;
-            window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                DESKTOP_navbar.style.top = 0 + "px";
+                DESKTOP_navbar.style.transitionDuration = 0.75 + "s";
+                for (let i: number = 0; i < DESKTOP_contentCol_Length; i++) {
+                    DESKTOP_contentCol_AR[i] = document.querySelectorAll('div.dsk-content-col')[i];
+                };
                 setTimeout(() => {
-                    DESKTOP_navbar.style.top = 0 + "px";
-                    DESKTOP_navbar.style.transitionDuration = 0.65 + "s";
-                    for (let i: number = 0; i < DESKTOP_contentCol_Length; i++) {
-                        DESKTOP_contentCol_AR[i] = document.querySelectorAll('div.dsk-content-col')[i];
+                    pageMain_VIDEO.video.play();
+                    const header_EL: HTMLDivElement = document.querySelector('div.header');
+                    header_EL.style.backgroundColor = "transparent";
+                    // Show:
+                    const dealy_show_AR: number[] = [900, 600, 300, 0];
+                    for (let i: number = 0; i <= 3; i++) {
+                        setTimeout(() => {
+                            DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                            DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
+                        }, dealy_show_AR[i]);
                     };
-                    setTimeout(() => {
-                        const header_EL: HTMLDivElement = document.querySelector('div.header');
-                        header_EL.style.backgroundColor = "transparent";
-                        // RESTRYKCJA tak jak w przypadku odtwarzania muzyki od razu
-                        //pageMain_VIDEO.video.autoplay = true;
-                        //pageMain_VIDEO.video.play();
-                        // Show:
-                        const dealy_show_AR: number[] = [600, 400, 200, 0];
-                        for (let i: number = 0; i <= 3; i++) {
-                            setTimeout(() => {
-                                DESKTOP_contentCol_AR[i].style.width = 0 + '%';
-                                DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
-                            }, dealy_show_AR[i]);
-                        };
-                        // Hide:
-                        /*const dealy_hide_AR: number[] = [0, 200, 400, 600];
-                        for (let i: number = 0; i <= DESKTOP_contentCol_Length; i++) {
-                            setTimeout(() => {
-                                DESKTOP_contentCol_AR[i].style.width = 25 + '%';
-                                DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
-                            }, dealy_hide_AR[i]);
-                        };*/
-                    }, 900);
-                }, 500);
-            }, false);
+                    // Hide:
+                    /*const dealy_hide_AR: number[] = [0, 300, 600, 900];
+                    for (let i: number = 0; i <= DESKTOP_contentCol_Length; i++) {
+                        setTimeout(() => {
+                            DESKTOP_contentCol_AR[i].style.width = 25 + '%';
+                            DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
+                        }, dealy_hide_AR[i]);
+                    };*/
+                }, 900);
+            }, 200);
         }
     }
 };
-pageIntro_OBJ.active_AEL();
 
-// Obejdź to z ciasteczkami!
-['click'].forEach((ev) => {
-    window.addEventListener(ev, () => {
-        pageMain_VIDEO.video.play();
-    }, false);
-});
+// RESTRYKCJA z auto-odtwarzaniem wideo tak jak w przypadku odtwarzania muzyki od razu:
+const cookie_OBJ: {
+    accept: Function
+    about: Function
+} = {
+    accept() {
+        const accept_EL: HTMLDivElement = document.querySelector('div.cookie-accept');
+        ['click', 'touchend'].forEach((ev) => {
+            accept_EL.addEventListener(ev, () => {
+                accept_EL.parentElement.style.display = 'none';
+                pageIntro_OBJ.active_AEL();
+            }, false);
+        });
+    },
+    about() {
+        const about_EL: HTMLDivElement = document.querySelector('div.cookie-about');
+        ['click', 'touchend'].forEach((ev) => {
+            about_EL.addEventListener(ev, () => {
+                window.location.href = 'https://cookieinformation.com/what-is-a-cookie/';
+            }, false);
+        });
+    }
+};
+cookie_OBJ.accept();
+cookie_OBJ.about();
 
 const navMob_dropdownButton_OBJ: {
     action: Function,
@@ -123,6 +137,10 @@ const navMob_dropdownButton_OBJ: {
                     strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(-45deg)";
                     strip_AR[2].style.transitionDuration = 0.3 + "s";
+                    for (let i: number = 0; i < iconTitles_Length; i++) {
+                        strip_AR[i].style.background = 'white';
+                        strip_AR[i].style.transitionDuration = 0.3 + "s";
+                    };
                 } else if (this.isEnable === true) {  // Hide target:
                     // Switch:
                     setTimeout(() => this.isEnable = false, 800);
@@ -147,6 +165,10 @@ const navMob_dropdownButton_OBJ: {
                     strip_AR[0].style.transitionDuration = 0.3 + "s";
                     strip_AR[2].style.transform = "rotate(0deg)";
                     strip_AR[2].style.transitionDuration = 0.3 + "s";
+                    for (let i: number = 0; i < iconTitles_Length; i++) {
+                        strip_AR[i].style.background = '#BBB';
+                        strip_AR[i].style.transitionDuration = 0.3 + "s";
+                    };
                 }
             }, false);
         });
@@ -216,3 +238,45 @@ const navDesk_dropdownButton_OBJ: {
     }
 };
 navDesk_dropdownButton_OBJ.action();
+
+const pageTransforms_OBJ: {
+    transform_AEL: Function,
+    getElements: Function,
+    pageWidth: number,
+    isMobile: boolean,
+    isDesktop: boolean
+} = {
+    isMobile: false,
+    isDesktop: false,
+    pageWidth: 0,
+    getElements(): (HTMLDivElement | HTMLVideoElement)[] {
+        const video_EL: HTMLVideoElement = document.querySelector('video.pm-video-background');
+        return [video_EL];
+    },
+    transform_AEL() {
+        ['load', 'resize'].forEach((ev) => {
+            window.addEventListener(ev, () => {
+                this.pageWidth = window.innerWidth;
+                if (this.pageWidth < 1000 && this.isMobile === false) {   /// Boolean'y są tutaj zabezpieczeniem przed niechcianym powtarzaniem się wywoływania funkcji:
+                    // MOBILE
+                    this.isMobile = true;
+                    this.isDesktop = false;
+                    const elements: HTMLVideoElement = this.getElements();
+                    const video_EL = elements[0];
+                    video_EL.style.display = 'none';
+                    video_EL.pause();
+                } else if (this.pageWidth >= 1000 && this.isDesktop === false) {
+                    // DESKTOP
+                    this.isDesktop = true;
+                    this.isMobile = false;
+                    const elements: HTMLVideoElement = this.getElements();
+                    const video_EL = elements[0];
+                    video_EL.style.display = 'flex';
+                    video_EL.currentTime = 0;
+                    video_EL.play();
+                }
+            }, false);
+        });
+    }
+};
+pageTransforms_OBJ.transform_AEL();
