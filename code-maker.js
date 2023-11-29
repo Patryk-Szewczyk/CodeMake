@@ -54,14 +54,6 @@ var pageIntro_OBJ = {
                         _loop_1(i);
                     }
                     ;
-                    // Hide:
-                    /*const dealy_hide_AR: number[] = [0, 300, 600, 900];
-                    for (let i: number = 0; i <= DESKTOP_contentCol_Length; i++) {
-                        setTimeout(() => {
-                            DESKTOP_contentCol_AR[i].style.width = 25 + '%';
-                            DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
-                        }, dealy_hide_AR[i]);
-                    };*/
                 }, 900);
             }, 200);
         }
@@ -177,6 +169,7 @@ var navMob_dropdownButton_OBJ = {
 navMob_dropdownButton_OBJ.action();
 var navDesk_dropdownButton_OBJ = {
     currentPage: 0,
+    activeChange: true,
     getPages_AR: function () {
         var pages_AR = [];
         var pagesNum = document.querySelectorAll('div.nav-dsk-dropdown-item-icon').length;
@@ -270,54 +263,59 @@ var navDesk_dropdownButton_OBJ = {
                 ;
             }, false);
             dropdownButton_AR[i].addEventListener('click', function (e) {
-                var element = e.currentTarget;
-                var element_ID = Number(element.id);
-                var pages_AR = _this.getPages_AR(); // pages
-                var _loop_2 = function (i_3) {
-                    _this.currentPage = element_ID;
-                    if (element_ID === i_3) {
-                        icon_AR[i_3].style.color = "hsl(215, 100%, 49%)";
-                        icon_AR[i_3].style.transitionDuration = 0.2 + "s";
-                        // Hide:
-                        var dealy_hide_AR = [0, 0, 0, 0]; /*OLD: 0, 300, 600, 900*/
-                        var _loop_3 = function (i_4) {
-                            setTimeout(function () {
-                                pageIntro_OBJ.DESKTOP_contentCol_AR[i_4].style.width = 25 + '%';
-                                pageIntro_OBJ.DESKTOP_contentCol_AR[i_4].style.transitionDuration = 0.8 + 's'; /*OLD: 1*/
-                            }, dealy_hide_AR[i_4]);
-                        };
-                        for (var i_4 = 0; i_4 <= 3; i_4++) {
-                            _loop_3(i_4);
-                        }
-                        ;
-                        // Show:
-                        setTimeout(function () {
-                            pages_AR[i_3].style.display = 'flex';
-                            var dealy_show_AR = [0, 0, 0, 0]; /*OLD: 900, 600, 300, 0*/
-                            var _loop_4 = function (i_5) {
+                if (_this.activeChange === true) {
+                    _this.activeChange = false;
+                    setTimeout(function () { return _this.activeChange = true; }, 2000);
+                    var element = e.currentTarget;
+                    var element_ID = Number(element.id);
+                    var pages_AR_1 = _this.getPages_AR(); // pages
+                    var _loop_2 = function (i_3) {
+                        _this.currentPage = element_ID;
+                        if (element_ID === i_3) {
+                            icon_AR[i_3].style.color = "hsl(215, 100%, 49%)";
+                            icon_AR[i_3].style.transitionDuration = 0.2 + "s";
+                            // Hide:
+                            var dealy_hide_AR = [0, 0, 0, 0]; /*OLD: 0, 300, 600, 900*/
+                            var _loop_3 = function (i_4) {
                                 setTimeout(function () {
-                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i_5].style.width = 0 + '%';
-                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i_5].style.transitionDuration = 0.8 + 's'; /*OLD: 1*/
-                                }, dealy_show_AR[i_5]);
+                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i_4].style.width = 25 + '%';
+                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i_4].style.transitionDuration = 0.8 + 's'; /*OLD: 1*/
+                                }, dealy_hide_AR[i_4]);
                             };
-                            for (var i_5 = 0; i_5 <= 3; i_5++) {
-                                _loop_4(i_5);
+                            for (var i_4 = 0; i_4 <= 3; i_4++) {
+                                _loop_3(i_4);
                             }
                             ;
-                        }, 1000); /*OLD: 1300*/
+                            // Show:
+                            setTimeout(function () {
+                                pages_AR_1[i_3].style.display = 'flex';
+                                var dealy_show_AR = [0, 0, 0, 0]; /*OLD: 900, 600, 300, 0*/
+                                var _loop_4 = function (i_5) {
+                                    setTimeout(function () {
+                                        pageIntro_OBJ.DESKTOP_contentCol_AR[i_5].style.width = 0 + '%';
+                                        pageIntro_OBJ.DESKTOP_contentCol_AR[i_5].style.transitionDuration = 0.8 + 's'; /*OLD: 1*/
+                                    }, dealy_show_AR[i_5]);
+                                };
+                                for (var i_5 = 0; i_5 <= 3; i_5++) {
+                                    _loop_4(i_5);
+                                }
+                                ;
+                            }, 1000); /*OLD: 1300*/
+                        }
+                        else if (element_ID !== i_3) {
+                            icon_AR[i_3].style.color = "#888";
+                            icon_AR[i_3].style.transitionDuration = 0.2 + "s";
+                            setTimeout(function () {
+                                pages_AR_1[i_3].style.display = 'none';
+                            }, 1000); /*OLD: 1300*/
+                        }
+                    };
+                    for (var i_3 = 0; i_3 < dropdownButtons_Length; i_3++) {
+                        _loop_2(i_3);
                     }
-                    else if (element_ID !== i_3) {
-                        icon_AR[i_3].style.color = "#888";
-                        icon_AR[i_3].style.transitionDuration = 0.2 + "s";
-                        setTimeout(function () {
-                            pages_AR[i_3].style.display = 'none';
-                        }, 1000); /*OLD: 1300*/
-                    }
-                };
-                for (var i_3 = 0; i_3 < dropdownButtons_Length; i_3++) {
-                    _loop_2(i_3);
+                    ;
                 }
-                ;
+                else { }
             }, false);
         }
         ;
