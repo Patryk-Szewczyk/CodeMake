@@ -56,14 +56,6 @@ const pageIntro_OBJ: {
                             this.DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
                         }, dealy_show_AR[i]);
                     };
-                    // Hide:
-                    /*const dealy_hide_AR: number[] = [0, 300, 600, 900];
-                    for (let i: number = 0; i <= DESKTOP_contentCol_Length; i++) {
-                        setTimeout(() => {
-                            DESKTOP_contentCol_AR[i].style.width = 25 + '%';
-                            DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
-                        }, dealy_hide_AR[i]);
-                    };*/
                 }, 900);
             }, 200);
         }
@@ -181,9 +173,11 @@ navMob_dropdownButton_OBJ.action();
 const navDesk_dropdownButton_OBJ: {
     getPages_AR: Function,
     action: Function,
-    currentPage: number
+    currentPage: number,
+    activeChange: boolean
 } = {
     currentPage: 0,
+    activeChange: true,
     getPages_AR(): any[] {
         const pages_AR: any[] = [];
         const pagesNum: number = document.querySelectorAll('div.nav-dsk-dropdown-item-icon').length;
@@ -267,41 +261,45 @@ const navDesk_dropdownButton_OBJ: {
                 };
             }, false);
             dropdownButton_AR[i].addEventListener('click', (e) => {
-                const element: HTMLDivElement = e.currentTarget;
-                const element_ID: number = Number(element.id);
-                const pages_AR: any[] = this.getPages_AR();   // pages
-                for (let i: number = 0; i < dropdownButtons_Length; i++) {
-                    this.currentPage = element_ID;
-                    if (element_ID === i) {
-                        icon_AR[i].style.color = "hsl(215, 100%, 49%)";
-                        icon_AR[i].style.transitionDuration = 0.2 + "s";
-                        // Hide:
-                        const dealy_hide_AR: number[] = [0, 0, 0, 0];   /*OLD: 0, 300, 600, 900*/
-                        for (let i: number = 0; i <= 3; i++) {
-                            setTimeout(() => {
-                                pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 25 + '%';
-                                pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.transitionDuration = 0.8 + 's';   /*OLD: 1*/
-                            }, dealy_hide_AR[i]);
-                        };
-                        // Show:
-                        setTimeout(() => {
-                            pages_AR[i].style.display = 'flex';
-                            const dealy_show_AR: number[] = [0, 0, 0, 0];   /*OLD: 900, 600, 300, 0*/
+                if (this.activeChange === true) {
+                    this.activeChange = false;
+                    setTimeout(() => this.activeChange = true, 2000);
+                    const element: HTMLDivElement = e.currentTarget;
+                    const element_ID: number = Number(element.id);
+                    const pages_AR: any[] = this.getPages_AR();   // pages
+                    for (let i: number = 0; i < dropdownButtons_Length; i++) {
+                        this.currentPage = element_ID;
+                        if (element_ID === i) {
+                            icon_AR[i].style.color = "hsl(215, 100%, 49%)";
+                            icon_AR[i].style.transitionDuration = 0.2 + "s";
+                            // Hide:
+                            const dealy_hide_AR: number[] = [0, 0, 0, 0];   /*OLD: 0, 300, 600, 900*/
                             for (let i: number = 0; i <= 3; i++) {
                                 setTimeout(() => {
-                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 25 + '%';
                                     pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.transitionDuration = 0.8 + 's';   /*OLD: 1*/
-                                }, dealy_show_AR[i]);
+                                }, dealy_hide_AR[i]);
                             };
-                        }, 1000);   /*OLD: 1300*/
-                    } else if (element_ID !== i) {
-                        icon_AR[i].style.color = "#888";
-                        icon_AR[i].style.transitionDuration = 0.2 + "s";
-                        setTimeout(() => {
-                            pages_AR[i].style.display = 'none';
-                        }, 1000);   /*OLD: 1300*/
-                    }
-                };
+                            // Show:
+                            setTimeout(() => {
+                                pages_AR[i].style.display = 'flex';
+                                const dealy_show_AR: number[] = [0, 0, 0, 0];   /*OLD: 900, 600, 300, 0*/
+                                for (let i: number = 0; i <= 3; i++) {
+                                    setTimeout(() => {
+                                        pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                                        pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.transitionDuration = 0.8 + 's';   /*OLD: 1*/
+                                    }, dealy_show_AR[i]);
+                                };
+                            }, 1000);   /*OLD: 1300*/
+                        } else if (element_ID !== i) {
+                            icon_AR[i].style.color = "#888";
+                            icon_AR[i].style.transitionDuration = 0.2 + "s";
+                            setTimeout(() => {
+                                pages_AR[i].style.display = 'none';
+                            }, 1000);   /*OLD: 1300*/
+                        }
+                    };
+                } else {}
             }, false);
         };
     }
