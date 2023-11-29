@@ -18,33 +18,67 @@ const page_OBJ: {
 };
 page_OBJ.setPage();
 
+const pageMain_VIDEO: {
+    video: HTMLVideoElement
+} = {
+    video: document.querySelector('video.pm-video-background')
+};
+
 const pageIntro_OBJ: {
     active_AEL: Function
 } = {
     active_AEL() {
-        // Desktop navbar:
-        const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
-        // Desktop content:
-        const DESKTOP_contentCol_AR: any[] = [];
-        const DESKTOP_contentCol_Length: number = document.querySelectorAll('section.dsk-content-col').length;
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                DESKTOP_navbar.style.top = 0 + "px";
-                DESKTOP_navbar.style.transitionDuration = 0.5 + "s";
+        if (window.innerWidth < 1000) {
+            //
+        } else if (window.innerWidth >= 1000) {
+            // Desktop navbar:
+            const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
+            // Desktop content:
+            const DESKTOP_contentCol_AR: any[] = [];
+            const DESKTOP_contentCol_Length: number = document.querySelectorAll('div.dsk-content-col').length;
+            window.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
-                    const header_EL: HTMLDivElement = document.querySelector('div.header');
-                    header_EL.style.backgroundColor = "transparent";
+                    DESKTOP_navbar.style.top = 0 + "px";
+                    DESKTOP_navbar.style.transitionDuration = 0.65 + "s";
                     for (let i: number = 0; i < DESKTOP_contentCol_Length; i++) {
-                        DESKTOP_contentCol_AR[i] = document.querySelectorAll('section.dsk-content-col')[i];
-                        DESKTOP_contentCol_AR[i].style.width = 0 + '%';
-                        DESKTOP_contentCol_AR[i].style.transitionDuration = 0.5 + 's';
+                        DESKTOP_contentCol_AR[i] = document.querySelectorAll('div.dsk-content-col')[i];
                     };
+                    setTimeout(() => {
+                        const header_EL: HTMLDivElement = document.querySelector('div.header');
+                        header_EL.style.backgroundColor = "transparent";
+                        // RESTRYKCJA tak jak w przypadku odtwarzania muzyki od razu
+                        //pageMain_VIDEO.video.autoplay = true;
+                        //pageMain_VIDEO.video.play();
+                        // Show:
+                        const dealy_show_AR: number[] = [600, 400, 200, 0];
+                        for (let i: number = 0; i <= 3; i++) {
+                            setTimeout(() => {
+                                DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                                DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
+                            }, dealy_show_AR[i]);
+                        };
+                        // Hide:
+                        /*const dealy_hide_AR: number[] = [0, 200, 400, 600];
+                        for (let i: number = 0; i <= DESKTOP_contentCol_Length; i++) {
+                            setTimeout(() => {
+                                DESKTOP_contentCol_AR[i].style.width = 25 + '%';
+                                DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
+                            }, dealy_hide_AR[i]);
+                        };*/
+                    }, 900);
                 }, 500);
-            }, 500);
-        }, false);
+            }, false);
+        }
     }
 };
 pageIntro_OBJ.active_AEL();
+
+// Obejdź to z ciasteczkami!
+['click'].forEach((ev) => {
+    window.addEventListener(ev, () => {
+        pageMain_VIDEO.video.play();
+    }, false);
+});
 
 const navMob_dropdownButton_OBJ: {
     action: Function,
