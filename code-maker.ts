@@ -26,7 +26,9 @@ const pageMain_VIDEO: {
 
 const pageIntro_OBJ: {
     active_AEL: Function
+    DESKTOP_contentCol_AR: any[]
 } = {
+    DESKTOP_contentCol_AR: [],
     active_AEL() {
         if (window.innerWidth < 1000) {
             //
@@ -34,24 +36,24 @@ const pageIntro_OBJ: {
             // Desktop navbar:
             const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
             // Desktop content:
-            const DESKTOP_contentCol_AR: any[] = [];
             const DESKTOP_contentCol_Length: number = document.querySelectorAll('div.dsk-content-col').length;
             setTimeout(() => {
                 DESKTOP_navbar.style.top = 0 + "px";
                 DESKTOP_navbar.style.transitionDuration = 0.75 + "s";
                 for (let i: number = 0; i < DESKTOP_contentCol_Length; i++) {
-                    DESKTOP_contentCol_AR[i] = document.querySelectorAll('div.dsk-content-col')[i];
+                    this.DESKTOP_contentCol_AR[i] = document.querySelectorAll('div.dsk-content-col')[i];
                 };
                 setTimeout(() => {
                     pageMain_VIDEO.video.play();
                     const header_EL: HTMLDivElement = document.querySelector('div.header');
                     header_EL.style.backgroundColor = "transparent";
+                    document.getElementById('dskNavIc0').style.color = 'hsl(215, 100%, 59%)';
                     // Show:
                     const dealy_show_AR: number[] = [900, 600, 300, 0];
                     for (let i: number = 0; i <= 3; i++) {
                         setTimeout(() => {
-                            DESKTOP_contentCol_AR[i].style.width = 0 + '%';
-                            DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
+                            this.DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                            this.DESKTOP_contentCol_AR[i].style.transitionDuration = 1 + 's';
                         }, dealy_show_AR[i]);
                     };
                     // Hide:
@@ -177,28 +179,43 @@ const navMob_dropdownButton_OBJ: {
 navMob_dropdownButton_OBJ.action();
 
 const navDesk_dropdownButton_OBJ: {
-    action: Function
+    getPages_AR: Function,
+    action: Function,
+    currentPage: number
 } = {
-    action () {
+    currentPage: 0,
+    getPages_AR(): any[] {
+        const pages_AR: any[] = [];
+        const pagesNum: number = document.querySelectorAll('div.nav-dsk-dropdown-item-icon').length;
+        for (let i: number = 0; i < pagesNum; i++) {
+            pages_AR[i] = document.querySelectorAll('section.page')[i];
+            if (this.currentPage === i) {
+                // nothing
+            } else if (this.currentPage !== i) {
+                pages_AR[i].style.display = 'none';
+            }
+        };
+        return pages_AR;
+    },
+    action () {   // WEŹ TWORZENIE TABLIC Z ELEMENTAMI DO OSOBNEJ METODY Z RETURN I PODZIEL POSZCZEGÓLNE CZĘŚCI TEJ FUNKCJI NA OSOBNE:
         const dropdownButton_AR: any[] = [];
         const dropdownTitle_AR: any[] = [];
         const ballTop_AR: number[] = [];
         const topMenuIcon_AR: any[] = [];
+        const icon_AR: any[] = [];
         let toBallTopARvalInc: number = 10.5;   /*15 - (9 / 2)*/
         const dropdownButtons_Length: number = document.querySelectorAll('div.nav-dsk-dropdown-item').length;
         const dropdownButtonsGroup_EL: any = document.querySelector('div.top-nav-buttons-group');
         const ball_EL: any = document.querySelector('div.nav-dsk-choose-ball');
         for (let i: number = 0; i < dropdownButtons_Length; i++) {
-            //const topMenuItem: any = document.querySelectorAll('div.nav-dsk-dropdown-item')[0];
-            //const topMenuItem_Height: number = topMenuItem.getBoundingClientRect().height;
             ballTop_AR[i] = toBallTopARvalInc;
             toBallTopARvalInc += 45;
-            //alert(topMenuItem_Height);
         };
         for (let i: number = 0; i < dropdownButtons_Length; i++) {
             dropdownButton_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item')[i];
             dropdownTitle_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-title-item')[i];
             topMenuIcon_AR[i] = document.querySelectorAll('div.nav-dsk-dropdown-item-icon')[i];
+            icon_AR[i] = document.getElementById('dskNavIc' + String(i));
             dropdownButton_AR[i].addEventListener('mouseover', (e) => {
                 const element: HTMLDivElement = e.currentTarget;
                 const element_ID: number = Number(element.id);
@@ -212,12 +229,20 @@ const navDesk_dropdownButton_OBJ: {
                         ball_EL.style.transitionDuration = 0.3 + "s";
                         topMenuIcon_AR[i].style.left = 20 + "px";
                         topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                        if (this.currentPage !== element_ID) {
+                            icon_AR[i].style.color = "white";
+                            icon_AR[i].style.transitionDuration = 0.2 + "s";
+                        } else {}
                     } else if (element_ID !== i) {   // Slide OFF:
                         dropdownTitle_AR[i].style.width = 0 + "%";
                         dropdownTitle_AR[i].style.padding = "0px";
                         dropdownTitle_AR[i].style.transitionDuration = 0.3 + "s";
                         topMenuIcon_AR[i].style.left = 0 + "px";
                         topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                        if (this.currentPage !== i) {
+                            icon_AR[i].style.color = "#888";
+                            icon_AR[i].style.transitionDuration = 0.2 + "s";
+                        } else {}
                     }
                 };
             }, false);
@@ -232,12 +257,57 @@ const navDesk_dropdownButton_OBJ: {
                     ball_EL.style.transitionDuration = 0.3 + "s";
                     topMenuIcon_AR[i].style.left = 0 + "px";
                     topMenuIcon_AR[i].style.transitionDuration = 0.3 + "s";
+                    if (this.currentPage === i) {
+                        icon_AR[i].style.color = "hsl(215, 100%, 49%)";
+                        icon_AR[i].style.transitionDuration = 0.2 + "s";
+                    } else if (this.currentPage !== i) {
+                        icon_AR[i].style.color = "#888";
+                        icon_AR[i].style.transitionDuration = 0.2 + "s";
+                    }
+                };
+            }, false);
+            dropdownButton_AR[i].addEventListener('click', (e) => {
+                const element: HTMLDivElement = e.currentTarget;
+                const element_ID: number = Number(element.id);
+                const pages_AR: any[] = this.getPages_AR();   // pages
+                for (let i: number = 0; i < dropdownButtons_Length; i++) {
+                    this.currentPage = element_ID;
+                    if (element_ID === i) {
+                        icon_AR[i].style.color = "hsl(215, 100%, 49%)";
+                        icon_AR[i].style.transitionDuration = 0.2 + "s";
+                        // Hide:
+                        const dealy_hide_AR: number[] = [0, 0, 0, 0];   /*OLD: 0, 300, 600, 900*/
+                        for (let i: number = 0; i <= 3; i++) {
+                            setTimeout(() => {
+                                pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 25 + '%';
+                                pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.transitionDuration = 0.8 + 's';   /*OLD: 1*/
+                            }, dealy_hide_AR[i]);
+                        };
+                        // Show:
+                        setTimeout(() => {
+                            pages_AR[i].style.display = 'flex';
+                            const dealy_show_AR: number[] = [0, 0, 0, 0];   /*OLD: 900, 600, 300, 0*/
+                            for (let i: number = 0; i <= 3; i++) {
+                                setTimeout(() => {
+                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.width = 0 + '%';
+                                    pageIntro_OBJ.DESKTOP_contentCol_AR[i].style.transitionDuration = 0.8 + 's';   /*OLD: 1*/
+                                }, dealy_show_AR[i]);
+                            };
+                        }, 1000);   /*OLD: 1300*/
+                    } else if (element_ID !== i) {
+                        icon_AR[i].style.color = "#888";
+                        icon_AR[i].style.transitionDuration = 0.2 + "s";
+                        setTimeout(() => {
+                            pages_AR[i].style.display = 'none';
+                        }, 1000);   /*OLD: 1300*/
+                    }
                 };
             }, false);
         };
     }
 };
 navDesk_dropdownButton_OBJ.action();
+navDesk_dropdownButton_OBJ.getPages_AR();
 
 const pageTransforms_OBJ: {
     transform_AEL: Function,
