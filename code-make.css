@@ -37,7 +37,7 @@ body {
         z-index: 1;
     }
         .logo-box {
-            width: 50px;
+            width: 60px;
             height: 100%;
             display: flex;
             flex-direction: row;
@@ -48,7 +48,7 @@ body {
             font-family: 'M PLUS Code Latin', monospace;
             font-size: 190%;
             font-weight: 600;
-            text-shadow: 1px 1px 1px rgba(0,0,0,1), -1px -1px 1px rgba(0,0,0,1), -1px 1px 1px rgba(0,0,0,1), 1px -1px 1px rgba(0,0,0,1);
+            /*text-shadow: 1px 1px 1px rgba(0,0,0,1), -1px -1px 1px rgba(0,0,0,1), -1px 1px 1px rgba(0,0,0,1), 1px -1px 1px rgba(0,0,0,1);*/
         }
         .nav-mob-left-buttons {
             width: auto;
@@ -180,6 +180,10 @@ body {
                 transition-duration: 0.25s;
             }
             .nav-mov-dropdown-item:nth-child(5):hover .bi, .nav-mov-dropdown-item:nth-child(5):hover .nav-mov-dropdown-item-title {
+                color: hsl(215, 100%, 49%);
+                transition-duration: 0.25s;
+            }
+            .nav-mov-dropdown-item:nth-child(6):hover .bi, .nav-mov-dropdown-item:nth-child(6):hover .nav-mov-dropdown-item-title {
                 color: hsl(215, 100%, 49%);
                 transition-duration: 0.25s;
             }
@@ -356,23 +360,39 @@ body {
         background-color: rgba(70,70,70);
         z-index: -1;
     }
-        .dsk-content-col {
-            width: 25%;
+        /*Hidden blocks:*/
+            .dsk-content-col {
+                width: 25%;
+                height: 100%;
+                position: absolute;
+                background-color: rgb(30,30,30);
+                z-index: 99;
+            }
+            .dsk-content-col:nth-child(1) {
+                right: 0%;
+            }
+            .dsk-content-col:nth-child(2) {
+                right: 25%;
+            }
+            .dsk-content-col:nth-child(3) {
+                right: 50%;
+            }
+            .dsk-content-col:nth-child(4) {
+                right: 75%;
+            }
+        .page-menu {
+            width: 100%;
             height: 100%;
-            position: absolute;
-            background-color: rgb(30,30,30);
-            z-index: 99;
+            position: relative;
+            background-image: url();
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            overflow: hidden;
         }
-        .dsk-content-col:nth-child(1) {
-            right: 0%;
-        }
-        .dsk-content-col:nth-child(2) {
-            right: 25%;
-        }
-        .dsk-content-col:nth-child(3) {
-            right: 50%;
-        }
-        .dsk-content-col:nth-child(4) {
-            right: 75%;
-        }
+            .pm-video-background {
+                width: 100%; 
+                height: auto;
+                filter: brightness(80%);
+            }
 }
