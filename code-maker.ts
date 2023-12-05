@@ -3,6 +3,7 @@ const page_OBJ: {
 } = {
     setPage(): void {
         let header: HTMLDivElement = document.querySelector('div.header');
+        let video_EL: HTMLDivElement = document.querySelector('section.page-menu');
         //addEventListener('load', () => {
             const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
             DESKTOP_navbar.style.top = window.innerHeight + "px";
@@ -12,6 +13,7 @@ const page_OBJ: {
             window.addEventListener(ev, () => {
                 let pageHeight: string = String(window.innerHeight);
                 header.style.height = pageHeight + 'px';
+                video_EL.style.height = pageHeight + 'px';
             }, false);
         });
     }
@@ -348,3 +350,64 @@ const pageTransforms_OBJ: {
     }
 };
 pageTransforms_OBJ.transform_AEL();
+
+const pages_OBJ: {
+    firstPage: Function
+} = {
+    firstPage() {
+        const actionWorld_EL: HTMLDivElement = document.querySelector('div.pw-action-world-proper');
+        let word_DB: string[] = [
+            'websites.',
+            'applications.',
+            'databases.',
+            'softwares'
+        ];
+        let i = 0;
+        let intervalLoop = 4000;
+        setInterval(() => {
+            // Writing word:
+            let val: string = word_DB[i];
+            const letter_AR: string[] = [];
+            for (let i: number = 0; i < val.length; i++) {
+                letter_AR[i] = val.charAt(i);
+            };
+            let j = 0;
+            let growingText: string = '';
+            setTimeout(() => {
+                setInterval(() => {
+                    if (j >= letter_AR.length) {} 
+                    else if (j < letter_AR.length) {
+                        growingText += letter_AR[j];
+                        actionWorld_EL.textContent = growingText;
+                    }
+                    j += 1;
+                }, 75);
+            }, 0);
+            i += (i === word_DB.length - 1) ? -(word_DB.length -1) : 1;
+
+            // Clearing word:
+            let clerVal: string = actionWorld_EL.textContent;
+            let rest: number = 200;
+            const subIntervalDur_AR: number = intervalLoop - (clerVal.length * 75) - rest;
+            console.log(subIntervalDur_AR);
+            let clearingText: string = '';
+            for (let i: number = 0; i < clerVal.length; i++) {
+                clearingText += clerVal.charAt(i);
+            };
+            let k = 0;
+            let decreaseVal = clearingText;
+            setTimeout(() => {
+                setInterval(() => {
+                    if (k >= clerVal.length) {}
+                    else if (k < clerVal.length) {
+                        decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
+                        console.log(decreaseVal);
+                        actionWorld_EL.textContent = decreaseVal;
+                    }
+                    k += 1;
+                }, 75);
+            }, subIntervalDur_AR);
+        }, intervalLoop);
+    }
+};
+pages_OBJ.firstPage();
