@@ -364,7 +364,27 @@ const pages_OBJ: {
         ];
         let i = 0;
         let intervalLoop = 4000;
+        let keyTap = 75;
         setInterval(() => {
+            // Clearing word:
+            let clerVal: string = actionWorld_EL.textContent;
+            let rest: number = 300;
+            const subIntervalDur_AR: number = (clerVal.length * 75) + rest;
+            let clearingText: string = '';
+            for (let i: number = 0; i < clerVal.length; i++) {
+                clearingText += clerVal.charAt(i);
+            };
+            let k = 0;
+            let decreaseVal = clearingText;
+            setInterval(() => {
+                if (k >= clerVal.length) {}
+                else if (k < clerVal.length) {
+                    decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
+                    actionWorld_EL.textContent = decreaseVal;
+                }
+                k += 1;
+            }, keyTap);
+
             // Writing word:
             let val: string = word_DB[i];
             const letter_AR: string[] = [];
@@ -381,32 +401,11 @@ const pages_OBJ: {
                         actionWorld_EL.textContent = growingText;
                     }
                     j += 1;
-                }, 75);
-            }, 0);
-            i += (i === word_DB.length - 1) ? -(word_DB.length -1) : 1;
-
-            // Clearing word:
-            let clerVal: string = actionWorld_EL.textContent;
-            let rest: number = 200;
-            const subIntervalDur_AR: number = intervalLoop - (clerVal.length * 75) - rest;
-            console.log(subIntervalDur_AR);
-            let clearingText: string = '';
-            for (let i: number = 0; i < clerVal.length; i++) {
-                clearingText += clerVal.charAt(i);
-            };
-            let k = 0;
-            let decreaseVal = clearingText;
-            setTimeout(() => {
-                setInterval(() => {
-                    if (k >= clerVal.length) {}
-                    else if (k < clerVal.length) {
-                        decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
-                        console.log(decreaseVal);
-                        actionWorld_EL.textContent = decreaseVal;
-                    }
-                    k += 1;
-                }, 75);
+                }, keyTap);
             }, subIntervalDur_AR);
+            i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
+
+            
         }, intervalLoop);
     }
 };
