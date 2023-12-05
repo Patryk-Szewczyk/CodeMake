@@ -522,10 +522,10 @@ body {
                 left: auto;
                 display: flex;
                 flex-direction: column;
-                background-color: rgba(0,0,0,0.2);
+                background-color: rgba(0,0,0,0.4);
                 backdrop-filter: blur(4px);
                 border-radius: 10px;
-                box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.3);
+                box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.6);
                 border: 0px solid orange;  /*TEST*/
             }
                 .pm-title-box, .pm-anim-box {
@@ -542,7 +542,7 @@ body {
                         text-transform: uppercase;
                     }
                     .pm-title-word:nth-child(1) {
-                        color: hsl(215, 100%, 88%);
+                        color: hsl(215, 100%, 90%);
                         margin-right: 10px;
                     }
                     .pm-title-word:nth-child(2) {
@@ -559,7 +559,7 @@ body {
                         margin-right: 10px;
                     }
                     .pm-action-word {
-                        color: hsl(215, 100%, 88%);
+                        color: hsl(215, 100%, 90%);
                         margin-left: 10px;
                     }
                         .pw-action-world-proper::after {
