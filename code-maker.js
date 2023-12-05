@@ -373,12 +373,32 @@ var pages_OBJ = {
         ];
         var i = 0;
         var intervalLoop = 4000;
+        var keyTap = 75;
         setInterval(function () {
+            // Clearing word:
+            var clerVal = actionWorld_EL.textContent;
+            var rest = 300;
+            var subIntervalDur_AR = (clerVal.length * 75) + rest;
+            var clearingText = '';
+            for (var i_6 = 0; i_6 < clerVal.length; i_6++) {
+                clearingText += clerVal.charAt(i_6);
+            }
+            ;
+            var k = 0;
+            var decreaseVal = clearingText;
+            setInterval(function () {
+                if (k >= clerVal.length) { }
+                else if (k < clerVal.length) {
+                    decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
+                    actionWorld_EL.textContent = decreaseVal;
+                }
+                k += 1;
+            }, keyTap);
             // Writing word:
             var val = word_DB[i];
             var letter_AR = [];
-            for (var i_6 = 0; i_6 < val.length; i_6++) {
-                letter_AR[i_6] = val.charAt(i_6);
+            for (var i_7 = 0; i_7 < val.length; i_7++) {
+                letter_AR[i_7] = val.charAt(i_7);
             }
             ;
             var j = 0;
@@ -391,32 +411,9 @@ var pages_OBJ = {
                         actionWorld_EL.textContent = growingText;
                     }
                     j += 1;
-                }, 75);
-            }, 0);
-            i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
-            // Clearing word:
-            var clerVal = actionWorld_EL.textContent;
-            var rest = 200;
-            var subIntervalDur_AR = intervalLoop - (clerVal.length * 75) - rest;
-            console.log(subIntervalDur_AR);
-            var clearingText = '';
-            for (var i_7 = 0; i_7 < clerVal.length; i_7++) {
-                clearingText += clerVal.charAt(i_7);
-            }
-            ;
-            var k = 0;
-            var decreaseVal = clearingText;
-            setTimeout(function () {
-                setInterval(function () {
-                    if (k >= clerVal.length) { }
-                    else if (k < clerVal.length) {
-                        decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
-                        console.log(decreaseVal);
-                        actionWorld_EL.textContent = decreaseVal;
-                    }
-                    k += 1;
-                }, 75);
+                }, keyTap);
             }, subIntervalDur_AR);
+            i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
         }, intervalLoop);
     }
 };
