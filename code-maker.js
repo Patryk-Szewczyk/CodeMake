@@ -1,6 +1,7 @@
 var page_OBJ = {
     setPage: function () {
         var header = document.querySelector('div.header');
+        var video_EL = document.querySelector('section.page-menu');
         //addEventListener('load', () => {
         var DESKTOP_navbar = document.querySelector('nav.navbar-desktop');
         DESKTOP_navbar.style.top = window.innerHeight + "px";
@@ -10,6 +11,7 @@ var page_OBJ = {
             window.addEventListener(ev, function () {
                 var pageHeight = String(window.innerHeight);
                 header.style.height = pageHeight + 'px';
+                video_EL.style.height = pageHeight + 'px';
             }, false);
         });
     }
@@ -360,3 +362,62 @@ var pageTransforms_OBJ = {
     }
 };
 pageTransforms_OBJ.transform_AEL();
+var pages_OBJ = {
+    firstPage: function () {
+        var actionWorld_EL = document.querySelector('div.pw-action-world-proper');
+        var word_DB = [
+            'websites.',
+            'applications.',
+            'databases.',
+            'softwares'
+        ];
+        var i = 0;
+        var intervalLoop = 4000;
+        setInterval(function () {
+            // Writing word:
+            var val = word_DB[i];
+            var letter_AR = [];
+            for (var i_6 = 0; i_6 < val.length; i_6++) {
+                letter_AR[i_6] = val.charAt(i_6);
+            }
+            ;
+            var j = 0;
+            var growingText = '';
+            setTimeout(function () {
+                setInterval(function () {
+                    if (j >= letter_AR.length) { }
+                    else if (j < letter_AR.length) {
+                        growingText += letter_AR[j];
+                        actionWorld_EL.textContent = growingText;
+                    }
+                    j += 1;
+                }, 75);
+            }, 0);
+            i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
+            // Clearing word:
+            var clerVal = actionWorld_EL.textContent;
+            var rest = 200;
+            var subIntervalDur_AR = intervalLoop - (clerVal.length * 75) - rest;
+            console.log(subIntervalDur_AR);
+            var clearingText = '';
+            for (var i_7 = 0; i_7 < clerVal.length; i_7++) {
+                clearingText += clerVal.charAt(i_7);
+            }
+            ;
+            var k = 0;
+            var decreaseVal = clearingText;
+            setTimeout(function () {
+                setInterval(function () {
+                    if (k >= clerVal.length) { }
+                    else if (k < clerVal.length) {
+                        decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
+                        console.log(decreaseVal);
+                        actionWorld_EL.textContent = decreaseVal;
+                    }
+                    k += 1;
+                }, 75);
+            }, subIntervalDur_AR);
+        }, intervalLoop);
+    }
+};
+pages_OBJ.firstPage();
