@@ -369,7 +369,7 @@ var pages_OBJ = {
             'websites.',
             'applications.',
             'databases.',
-            'softwares'
+            'softwares.'
         ];
         var i = 0;
         var intervalLoop = 4000;
