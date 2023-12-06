@@ -360,7 +360,7 @@ const pages_OBJ: {
             'websites.',
             'applications.',
             'databases.',
-            'softwares'
+            'softwares.'
         ];
         let i = 0;
         let intervalLoop = 4000;
