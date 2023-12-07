@@ -356,20 +356,22 @@ const pages_OBJ: {
 } = {
     firstPage() {
         const actionWorld_EL: HTMLDivElement = document.querySelector('div.pw-action-world-proper');
+        const blinkLine: HTMLDivElement = document.querySelector('div.pw-action-world-proper-line');
         let word_DB: string[] = [
             'websites.',
             'applications.',
             'databases.',
             'softwares.'
         ];
-        let i = 0;
-        let intervalLoop = 4000;
-        let keyTap = 75;
-        setInterval(() => {
-            // Clearing word:
+        let i: number = 0;
+        let intervalLoop: number = 4000;
+        let keyTap: number = 75;
+        setInterval(() => {   // Writing and backspacing animation:
+            
+            // Backspacing word:
             let clerVal: string = actionWorld_EL.textContent;
             let rest: number = 300;
-            const subIntervalDur_AR: number = (clerVal.length * 75) + rest;
+            const subIntervalDur_AR: number = (clerVal.length * keyTap) + rest;
             let clearingText: string = '';
             for (let i: number = 0; i < clerVal.length; i++) {
                 clearingText += clerVal.charAt(i);
@@ -381,6 +383,7 @@ const pages_OBJ: {
                 else if (k < clerVal.length) {
                     decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
                     actionWorld_EL.textContent = decreaseVal;
+                    blinkLine.style.visibility = 'visible';
                 }
                 k += 1;
             }, keyTap);
@@ -391,7 +394,7 @@ const pages_OBJ: {
             for (let i: number = 0; i < val.length; i++) {
                 letter_AR[i] = val.charAt(i);
             };
-            let j = 0;
+            let j: number = 0;
             let growingText: string = '';
             setTimeout(() => {
                 setInterval(() => {
@@ -399,14 +402,25 @@ const pages_OBJ: {
                     else if (j < letter_AR.length) {
                         growingText += letter_AR[j];
                         actionWorld_EL.textContent = growingText;
+                        blinkLine.style.visibility = 'visible';
                     }
                     j += 1;
                 }, keyTap);
             }, subIntervalDur_AR);
             i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
-
-            
         }, intervalLoop);
+
+        // Blinking:
+        let isVisible: boolean = true;
+        setInterval(() => {
+                if (isVisible === true) {
+                    isVisible = false;
+                    blinkLine.style.visibility = 'hidden';
+                } else {
+                    isVisible = true;
+                    blinkLine.style.visibility = 'visible';
+                }
+        }, 500);
     }
 };
 pages_OBJ.firstPage();
