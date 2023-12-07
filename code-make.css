@@ -594,14 +594,13 @@ body {
                 .pt-content-worker {
                     width: 250px;
                     height: 325px;
-                    padding: 0px 25px;
                     position: relative;
                     left: 0px;
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
-                    background-image: linear-gradient(to right, rgb(180,180,180) 0%, 25%, rgb(220,220,220) 90%);
+                    background-image: linear-gradient(to right, rgb(180,180,180) 0%, 9%, rgb(220,220,220) 90%);
                     box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);
                     perspective: 1200px;  /*PERSPECTIVE*/
                     z-index: 1;
@@ -655,7 +654,7 @@ body {
                         width: 100%;
                         height: 100%;
                         position: absolute;
-                        background-image: linear-gradient(to right, rgb(180,180,180) 0%, 25%, rgb(220,220,220) 90%);
+                        background-image: linear-gradient(to right, rgb(180,180,180) 0%, 9%, rgb(220,220,220) 90%);
                         box-shadow: -0.5px 0px 3px 0px rgba(60,60,60,0.5);
                         transform-style: preserve-3d;
                         transform: rotateY(0deg);
@@ -693,6 +692,7 @@ body {
                         transition-duration: 0.75s;
                     }
                     .pt-content-worker:hover .pt-content-worker-backface {
+                        /*box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);*/
                         box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);
                         transition-duration: 0.75s;
                     }
@@ -700,41 +700,46 @@ body {
                         left: 125px;
                         transition-duration: 0.75s;
                     }
-                    .pt-worker-name {
-                        width: 100%;
-                        height: 45px;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: flex-end;
-                        color: hsl(215, 100%, 29%);
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 125%;
-                        font-weight: 600;
-                        text-transform: capitalize;
+                    .pt-worker-inside-content {
+                        padding: 0px 25px;
+                        background-image: inherit;
+                        z-index: 2;
                     }
-                    .pt-worker-job {
-                        width: 100%;
-                        height: 28px;
-                        margin-top: 4px;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: flex-start;
-                        color: rgb(20,20,20);
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 100%;
-                        font-weight: 600;
-                    }
-                    .pt-worker-desc {
-                        width: 100%;
-                        height: calc(325px - 40px - 50px);
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 14px;
-                        font-weight: 500;
-                        text-align: justify;
-                        border: 0px solid red;  /*TEST*/
-                    }
+                        .pt-worker-name {
+                            width: 100%;
+                            height: 45px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: flex-end;
+                            color: hsl(215, 100%, 29%);
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 125%;
+                            font-weight: 600;
+                            text-transform: capitalize;
+                        }
+                        .pt-worker-job {
+                            width: 100%;
+                            height: 28px;
+                            margin-top: 4px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: flex-start;
+                            color: rgb(20,20,20);
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 100%;
+                            font-weight: 600;
+                        }
+                        .pt-worker-desc {
+                            width: 100%;
+                            height: calc(325px - 40px - 50px);
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 14px;
+                            font-weight: 500;
+                            text-align: justify;
+                            border: 0px solid red;  /*TEST*/
+                        }
             .pt-background {
                 width: 50%;
                 background-image: linear-gradient(to right, rgb(90,90,90), rgb(60,60,60));
@@ -745,7 +750,8 @@ body {
             }
             .pt-content::-webkit-scrollbar-thumb {
                 width: 7px;
-                background-color: var(--navbar-color);
+                background-color: rgba(20,20,20,0.25);
+                transition-duration: 0.5s;
             }
         .page-products {
             display: flex;
