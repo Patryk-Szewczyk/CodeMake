@@ -365,6 +365,7 @@ pageTransforms_OBJ.transform_AEL();
 var pages_OBJ = {
     firstPage: function () {
         var actionWorld_EL = document.querySelector('div.pw-action-world-proper');
+        var blinkLine = document.querySelector('div.pw-action-world-proper-line');
         var word_DB = [
             'websites.',
             'applications.',
@@ -375,10 +376,10 @@ var pages_OBJ = {
         var intervalLoop = 4000;
         var keyTap = 75;
         setInterval(function () {
-            // Clearing word:
+            // Backspacing word:
             var clerVal = actionWorld_EL.textContent;
             var rest = 300;
-            var subIntervalDur_AR = (clerVal.length * 75) + rest;
+            var subIntervalDur_AR = (clerVal.length * keyTap) + rest;
             var clearingText = '';
             for (var i_6 = 0; i_6 < clerVal.length; i_6++) {
                 clearingText += clerVal.charAt(i_6);
@@ -391,6 +392,7 @@ var pages_OBJ = {
                 else if (k < clerVal.length) {
                     decreaseVal = clearingText.slice(0, clerVal.length - (k + 1));
                     actionWorld_EL.textContent = decreaseVal;
+                    blinkLine.style.visibility = 'visible';
                 }
                 k += 1;
             }, keyTap);
@@ -409,12 +411,25 @@ var pages_OBJ = {
                     else if (j < letter_AR.length) {
                         growingText += letter_AR[j];
                         actionWorld_EL.textContent = growingText;
+                        blinkLine.style.visibility = 'visible';
                     }
                     j += 1;
                 }, keyTap);
             }, subIntervalDur_AR);
             i += (i === word_DB.length - 1) ? -(word_DB.length - 1) : 1;
         }, intervalLoop);
+        // Blinking:
+        var isVisible = true;
+        setInterval(function () {
+            if (isVisible === true) {
+                isVisible = false;
+                blinkLine.style.visibility = 'hidden';
+            }
+            else {
+                isVisible = true;
+                blinkLine.style.visibility = 'visible';
+            }
+        }, 500);
     }
 };
 pages_OBJ.firstPage();
