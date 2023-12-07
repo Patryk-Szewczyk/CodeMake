@@ -1,777 +1,291 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="code, make, programming, app, website, software, database, front-end, back-end, company"></meta>
+    <title>Code Make</title>
+    <link rel="stylesheet" href="code-make.css" type="text/css" />
+</head>
+<body>
 
-:root {
-    --navbar-color: rgb(20,20,20);
-    --main-theme: rgb(0, 104, 250)
-}
+    <div class="preloader"></div>
 
-* {
-    box-sizing: border-box;
-}
+    <div class="page">
+        <div class="header">
+            <nav class="navbar-mobile">
+                <div class="logo-box">C</div>
+                <div class="nav-mob-left-buttons">
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
+                            <path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z"/>
+                            <path d="M3.857 13.145h7.137v-1.428H3.857zM10.254 0 9.108.852l4.26 5.727 1.146-.852zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-dropdown-button">
+                        <div class="nav-mob-dropdown-strip-group">
+                            <div class="nav-mob-dropdown-strip"></div>
+                            <div class="nav-mob-dropdown-strip"></div>
+                            <div class="nav-mob-dropdown-strip"></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-mob-dropdown-target">
+                <div class="nav-mov-dropdown-item" id="0">
+                    <div class="nav-mov-dropdown-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mov-dropdown-item-title">MENU</div>
+                </div>
+                <div class="nav-mov-dropdown-item" id="1">
+                    <div class="nav-mov-dropdown-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mov-dropdown-item-title">INFO</div>
+                </div>
+                <div class="nav-mov-dropdown-item" id="2">
+                    <div class="nav-mov-dropdown-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mov-dropdown-item-title">PRODUCTS</div>
+                </div>
+                <div class="nav-mov-dropdown-item" id="3">
+                    <div class="nav-mov-dropdown-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mov-dropdown-item-title">TEAM</div>
+                </div>
+                <div class="nav-mov-dropdown-item" id="4">
+                    <div class="nav-mov-dropdown-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mov-dropdown-item-title">CONTACT</div>
+                </div>
+            </div>
+            <!--CONTENT MOBILE-->
+            <nav class="navbar-desktop">
+                <div class="logo-box">C</div>
+                <div class="top-nav-buttons-group">
+                    <div class="nav-dsk-choose-ball"></div>
+                    <div class="nav-mov-dropdown-item">
+                        <div class="nav-mov-dropdown-item-icon nav-dsk-dropdown-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" id="dskNavIc0" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                            </svg>
+                        </div>
+                        <div class="nav-dsk-dropdown-item" id="0"></div>
+                        <div class="nav-dsk-dropdown-title-item">MENU</div>
+                    </div>
+                    <div class="nav-mov-dropdown-item">
+                        <div class="nav-mov-dropdown-item-icon nav-dsk-dropdown-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" id="dskNavIc1" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                            </svg>
+                        </div>
+                        <div class="nav-dsk-dropdown-item" id="1"></div>
+                        <div class="nav-dsk-dropdown-title-item">INFO</div>
+                    </div>
+                    <div class="nav-mov-dropdown-item">
+                        <div class="nav-mov-dropdown-item-icon nav-dsk-dropdown-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" id="dskNavIc2" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                            </svg>
+                        </div>
+                        <div class="nav-dsk-dropdown-item" id="2"></div>
+                        <div class="nav-dsk-dropdown-title-item">PRODUCTS</div>
+                    </div>
+                    <div class="nav-mov-dropdown-item">
+                        <div class="nav-mov-dropdown-item-icon nav-dsk-dropdown-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" id="dskNavIc3" class="bi bi-people" viewBox="0 0 16 16">
+                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                            </svg>
+                        </div>
+                        <div class="nav-dsk-dropdown-item" id="3"></div>
+                        <div class="nav-dsk-dropdown-title-item">TEAM</div>
+                    </div>
+                    <div class="nav-mov-dropdown-item">
+                        <div class="nav-mov-dropdown-item-icon nav-dsk-dropdown-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" id="dskNavIc4" class="bi bi-envelope" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                            </svg>
+                        </div>
+                        <div class="nav-dsk-dropdown-item" id="4"></div>
+                        <div class="nav-dsk-dropdown-title-item">CONTACT</div>
+                    </div>
+                </div>
+                <div class="bottom-nav-buttons-group">
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                        </svg>
+                    </div>
+                    <div class="nav-mob-icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
+                            <path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282h9.984z"/>
+                            <path d="M3.857 13.145h7.137v-1.428H3.857zM10.254 0 9.108.852l4.26 5.727 1.146-.852zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013-.603 1.294zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468-.294 1.397z"/>
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+            <!--CONTENT DESKTOP-->
+            <section class="dsk-content-col-group">
+                <div class="dsk-content-col"></div>
+                <div class="dsk-content-col"></div>
+                <div class="dsk-content-col"></div>
+                <div class="dsk-content-col"></div>
+            </section>
+            <article class="dsk-content">
+                <section class="page page-menu">
+                    <video loop="true" class="pm-video-background" alt="background video">
+                        <source src="video/office_-_69952 (720p).mp4">
+                    </video>
+                    <div class="pm-text-box">
+                        <div class="pm-title-box">
+                            <div class="pm-title-word">code</div>
+                            <div class="pm-title-word">make</div>
+                        </div>
+                        <div class="pm-anim-box">
+                            <div class="pm-fixed-word">We creating:</div>
+                            <div class="pm-action-word">
+                                <div class="pw-action-world-proper"></div>
+                                <div class="pw-action-world-proper-line">|</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page page-info">
+                    Strona 2
+                </section>
+                <section class="page page-products">
+                    <div class="product-cube-box"></div>
+                </section>
+                <section class="page page-team">
+                    <div class="pt-content">
+                        <div class="pt-content-title">zespół</div>
+                        <div class="pt-content-worker">
+                            <div class="pt-content-worker-image ptcwi-1"></div>
+                            <div class="pt-content-worker-backface">
+                                <div class="pt-content-worker-backface-image ptcwbi-1"></div>
+                            </div>
+                            <div class="pt-worker-inside-content">
+                                <div class="pt-worker-name">walter white</div>
+                                <div class="pt-worker-job">Front-end Developer</div>
+                                <div class="pt-worker-desc">
+                                    Walter White is a graduate of Harvard University.
+                                    He earned a degree in web application programming engineer.
+                                    White is a specialist in programming the appearance and
+                                    functionality of websites, mobile and desktop applications.
+                                    Each of its websites and applications is original and tailor-made.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-content-worker">
+                            <div class="pt-content-worker-image ptcwi-2"></div>
+                            <div class="pt-content-worker-backface">
+                                <div class="pt-content-worker-backface-image ptcwbi-2"></div>
+                            </div>
+                            <div class="pt-worker-inside-content">
+                                <div class="pt-worker-name">william minerva</div>
+                                <div class="pt-worker-job">Back-end Developer</div>
+                                <div class="pt-worker-desc">
+                                    House is a graduate of Cambridge University. he graduated as
+                                    a software engineer. Dr. House is now a professional front-end
+                                    developer with over 15 years of experience programming databases,
+                                    console programs, ASP .NET and iOS applications.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-content-worker">
+                            <div class="pt-content-worker-image ptcwi-3"></div>
+                            <div class="pt-content-worker-backface">
+                                <div class="pt-content-worker-backface-image ptcwbi-3"></div>
+                            </div>
+                            <div class="pt-worker-inside-content">
+                                <div class="pt-worker-name">Amanda Yaspis</div>
+                                <div class="pt-worker-job">SEO Specialist</div>
+                                <div class="pt-worker-desc">
+                                    Amanda has a computer science degree from the University of California.
+                                    Yaspis is an SEO expert. It easily positions any website, ensuring its
+                                    exemplary online visibility. In addition, Amanda is involved in copywriting
+                                    and website hosting.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-content-worker">
+                            <div class="pt-content-worker-image ptcwi-4"></div>
+                            <div class="pt-content-worker-backface">
+                                <div class="pt-content-worker-backface-image ptcwbi-4"></div>
+                            </div>
+                            <div class="pt-worker-inside-content">
+                                <div class="pt-worker-name">Jennifer Paterson</div>
+                                <div class="pt-worker-job">Social Media</div>
+                                <div class="pt-worker-desc">
+                                    Jennifer is a graduate of the University of Iowa. She graduated with a
+                                    degree in social media. Paterson builds the company's image strategy,
+                                    I am responsible for marketing and PR. He knows the secrets of effective
+                                    advertising campaigns on Instagram, Facebook and Twitter.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-background"></div>
+                </section>
+                <section class="page page-contact">
+                    Strona 5
+                </section>
+            </article>
+        </div>
+    </div>
+    <div class="cookie-box">
+        <div class="cookie-title">Cookies</div>
+        <div class="cookie-desc">
+            We, CodeMake Sp. z o.., with our partners use in ours websites 
+            from cookie files. This files is essential for websites working.
+            Due to cookies we can get to know about you and in future in 
+            next website entry we provide you personalized content.
+        </div>
+        <div class="cookie-accept">Accept cookies</div>
+        <div class="cookie-about">About cookies</div>
+    </div>
 
-body {
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
-}
-.header {
-    width: 100%;
-    /*height: TS;*/
-    display: flex;
-    position: relative;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    background-color: var(--navbar-color);
-}
-
-@media only screen and (min-width: 0px) {  /*MOBILE*/
-    .navbar-desktop {
-        display: none;
-    }
-    .navbar-mobile {
-        width: 100%;
-        height: 60px;
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: var(--navbar-color);
-        z-index: 1;
-    }
-        .logo-box {
-            width: 60px;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to bottom right, hsl(215, 90%, 35%), hsl(215, 100%, 49%), hsl(215, 90%, 67%));
-            color: white;
-            font-family: 'M PLUS Code Latin', monospace;
-            font-size: 190%;
-            font-weight: 600;
-            /*text-shadow: 1px 1px 1px rgba(0,0,0,1), -1px -1px 1px rgba(0,0,0,1), -1px 1px 1px rgba(0,0,0,1), 1px -1px 1px rgba(0,0,0,1);*/
-        }
-        .nav-mob-left-buttons {
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-        }
-            .nav-mob-icon-button {
-                width: 36px;
-                height: 60px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                background-color: inherit;
-            }
-                .bi {  /* <----------------- IKONY ! */
-                    color: #888;
-                    transition-duration: 0.25s;
-                }
-                .nav-mob-icon-button:hover {
-                    cursor: pointer;
-                }
-                .nav-mob-icon-button:nth-child(1):hover .bi {
-                    color: var(--main-theme);
-                    transition-duration: 0.25s;
-                }
-                .nav-mob-icon-button:nth-child(2):hover .bi {
-                    color: var(--main-theme);
-                    transition-duration: 0.25s;
-                }
-                .nav-mob-icon-button:nth-child(3):hover .bi {
-                    color: var(--main-theme);
-                    transition-duration: 0.25s;
-                }
-                .nav-mob-icon-button:nth-child(4):hover .bi {
-                    color: var(--main-theme);
-                    transition-duration: 0.25s;
-                }
-            .nav-mob-dropdown-button {
-                width: 60px;
-                height: 60px;
-                margin: 0px 0px 0px 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background-color: rgb(50,50,50);
-            }
-            .nav-mob-dropdown-button:hover {
-                cursor: pointer;
-            }
-                .nav-mob-dropdown-strip-group {
-                    width: 0px;
-                    height: 0px;
-                    position: relative;
-                    top: -1.5px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                }
-                    .nav-mob-dropdown-strip {
-                        width: 30px;
-                        height: 3px;
-                        position: absolute;
-                        background-color: #BBB;
-                    }
-                    .nav-mob-dropdown-strip:nth-child(1) {
-                        top: -10px;
-                        transform-origin: left;
-                    }
-                    .nav-mob-dropdown-strip:nth-child(2) {
-                        top: 0px;
-                    }
-                    .nav-mob-dropdown-strip:nth-child(3) {
-                        top: 10px;
-                        transform-origin: left;
-                        transform: rotate();
-                    }
-    .nav-mob-dropdown-target {
-        width: 60px;
-        height: 0px;  /*500px*/
-        position: absolute;
-        top: 60px;
-        right: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(45,45,45);   /*OLD: 65*/
-        box-shadow: 0px 0px 3px #000;
-        overflow: hidden;
-    }
-        .nav-mov-dropdown-item {
-            width: 100%;
-            height: 50px;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            border: 0px solid red;  /*TEST*/
-        }
-            .nav-mov-dropdown-item:hover {
-                cursor: pointer;
-                background-color: rgb(53,53,53);
-                transition-duration: 0.3s;
-            }
-            /*TO MOBILE: (following code working only for mobile devices)*/
-            .nav-mov-dropdown-item:nth-child(1):hover .bi, .nav-mov-dropdown-item:nth-child(1):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item:nth-child(2):hover .bi, .nav-mov-dropdown-item:nth-child(2):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item:nth-child(3):hover .bi, .nav-mov-dropdown-item:nth-child(3):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item:nth-child(4):hover .bi, .nav-mov-dropdown-item:nth-child(4):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item:nth-child(5):hover .bi, .nav-mov-dropdown-item:nth-child(5):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item:nth-child(6):hover .bi, .nav-mov-dropdown-item:nth-child(6):hover .nav-mov-dropdown-item-title {
-                color: white;
-                transition-duration: 0.25s;
-            }
-            .nav-mov-dropdown-item-icon {
-                width: 65px;
-                height: 50px;
-                padding-left: 5px;
-                position: relative;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                border: 0px solid lime;  /*TEST*/
-            }
-            .nav-mov-dropdown-item-title {
-                width: 0px;
-                height: 50px;
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                color: #BBB;
-                font-family: 'Inter', sans-serif;
-                font-weight: 500;
-                overflow: hidden;
-                opacity: 0.0;
-                border: 0px solid cyan;  /*TEST*/
-            }
-            .nav-mov-dropdown-item-title::selection {
-                background-color: inherit;
-            }
-}
-
-@media only screen and (min-width: 600px) {  /*TABLET*/
-
-}
-
-@media only screen and (min-width: 1000px) {  /*DESKTOP*/
-    .cookie-box {
-        width: 400px;
-        height: auto;
-        padding: 35px 40px;
-        position: absolute;
-        left: calc(50% - 200px);
-        top: calc(50% - 180px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background-image: radial-gradient(rgb(255,255,255), rgb(200,200,200));
-        color: #222;
-        font-family: Arial;
-        font-size: 140%;
-        font-weight: 500;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(255,255,255,0.3);
-        z-index: 99;
-    }
-        .cookie-title {
-            width: 100%;
-            height: 35px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            color: #333;
-            font-family: Arial;
-            font-size: 115%;
-            font-weight: 600;
-        }
-        .cookie-desc {
-            width: 100%;
-            height: 120px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-            font-family: Arial;
-            font-size: 60%;
-            font-weight: 500;
-            text-align: justify;
-        }
-        .cookie-accept, .cookie-about {
-            width: 200px;
-            height: 40px;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            clear: both;
-            font-family: Arial;
-            font-size: 60%;
-            font-weight: 500;
-            border-radius: 10px;
-        }
-        .cookie-accept {
-            background-color: var(--main-theme);
-            color: white;
-        }
-        .cookie-accept:hover {
-            cursor: pointer;
-            background-color: var(--main-theme);
-        }
-        .cookie-about {
-            background-color: transparent;
-            color: var(--main-theme);
-            border: 2px solid var(--main-theme);
-        }
-        .cookie-about:hover {
-            cursor: pointer;
-            border: 3px solid var(--main-theme);
-        }
-        .cookie-accept:active, .cookie-about:active {
-            outline: var(--main-theme) solid 2px;
-            outline-offset: 4px;
-        }
-    .navbar-mobile {
-        display: none;
-    }
-    .navbar-desktop {
-        width: 60px;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: var(--navbar-color);
-        z-index: 20;
-    }
-        .logo-box {
-            width: 100%;
-            height: 60px;
-            z-index: 2;
-        }
-        .nav-dsk-choose-ball {
-            width: 54px;
-            height: 54px;
-            position: absolute;
-            top: 0px;
-            left: 0%;  /*35%*/
-            background-color: var(--navbar-color);
-            border-radius: 100%;
-        }
-        .nav-dsk-choose-ball::before {
-            content: "";
-            width: 35px;
-            height: 35px;
-            position: absolute;
-            top: -26px;
-            left: 37px;
-            background-color: transparent;
-            border-radius: 100%;
-            box-shadow: -30px 15px 1px 0px var(--navbar-color);
-        }
-        .nav-dsk-choose-ball::after {
-            content: "";
-            width: 35px;
-            height: 35px;
-            position: absolute;
-            bottom: -26px;
-            left: 37px;
-            background-color: transparent;
-            border-radius: 100%;
-            box-shadow: -30px -15px 1px 0px var(--navbar-color);
-        }
-        .top-nav-buttons-group {
-            width: auto;
-            height: auto;
-            padding-top: 15px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 0px solid orange;  /*TEST*/
-        }
-            .nav-mov-dropdown-item {
-                height: 45px;
-            }
-                .nav-mov-dropdown-item-icon {
-                    width: 60px;
-                    padding-left: 0px;
-                }
-                .nav-mov-dropdown-item:hover {
-                    cursor: pointer;
-                    background-color: inherit;
-                }
-                .nav-dsk-dropdown-item {  /*PLUS Z-INDEX TRANSP*/
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    background-color: transparent;
-                    z-index: 2;
-                }
-                    .nav-dsk-dropdown-item-icon {
-                        left: 0px;
-                    }
-                    .nav-dsk-dropdown-title-item {
-                        width: 0%;
-                        height: 36px;
-                        padding: 0px;
-                        position: absolute;
-                        top: 0px;
-                        left: 95px;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-start;
-                        align-items: center;
-                        background-color: var(--navbar-color);
-                        color: white;
-                        font-family: 'Inter', sans-serif;
-                        font-size: 90%;
-                        font-weight: 500;
-                        transition-duration: 0.35s;
-                        opacity: 1.0;
-                        overflow: hidden;
-                        border-radius: 10px;
-                        z-index: -1;
-                        border: 0px solid orange;  /*TEST*/
-                    }
-        .bottom-nav-buttons-group {
-            width: 100%;
-            height: auto;
-            padding-bottom: 15px;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 0px solid orange;  /*TEST*/
-        }
-            .nav-mob-icon-button {
-                width: 100%;
-                height: 34px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                background-color: inherit;
-            }
-    /*CONTENT DESKTOP:*//*Hidden blocks:*/
-    .dsk-content-col-group {
-        width: calc(100% - 60px);
-        height: 100%;
-        position: absolute;
-        left: 60px;
-        top: 0px;
-    }
-    .dsk-content-col {
-        width: 25%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        background-color: var(--navbar-color);
-        z-index: 20;
-    }
-    .dsk-content-col:nth-child(1) {
-        right: 0%;
-    }
-    .dsk-content-col:nth-child(2) {
-        right: 25%;
-    }
-    .dsk-content-col:nth-child(3) {
-        right: 50%;
-    }
-    .dsk-content-col:nth-child(4) {
-        right: 75%;
-    }
-    .dsk-content {
-        width: calc(100% - 60px);
-        height: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(70,70,70);
-        z-index: 1;
-    }
-        .page-menu {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-            .pm-video-background {
-                width: 100%; 
-                height: 100%;
-                object-fit: cover;
-                filter: brightness(40%);
-                background-position: center;
-                background-size: contain;
-            }
-            .pm-text-box {
-                width: auto;
-                height: auto;
-                padding: 40px;
-                position: absolute;
-                top: auto;
-                left: auto;
-                display: flex;
-                flex-direction: column;
-                border: 0px solid orange;  /*TEST*/
-            }
-                .pm-title-box, .pm-anim-box {
-                    width: auto;
-                    height: auto;
-                    display: flex;
-                    font-family: Arial, Helvetica, sans-serif;
-                }
-                .pm-title-box {
-                    font-size: 425%;
-                    font-weight: 600;
-                }
-                    .pm-title-word {
-                        text-transform: uppercase;
-                    }
-                    .pm-title-word:nth-child(1) {
-                        color: hsl(215, 100%, 90%);
-                        margin-right: 10px;
-                    }
-                    .pm-title-word:nth-child(2) {
-                        color: rgb(235,235,235);
-                        margin-left: 10px;
-                    }
-                .pm-anim-box {
-                    width: 100%;
-                    height: auto;
-                    margin-top: 10px;
-                    display: flex;
-                    justify-content: center;
-                    font-size: 150%;
-                    font-weight: 600;
-                }
-                    .pm-fixed-word {
-                        color: rgb(235,235,235);
-                        margin-right: 10px;
-                    }
-                    .pm-action-word {
-                        display: flex;
-                        flex-direction: row;
-                        color: hsl(215, 100%, 90%);
-                        margin-left: 10px;
-                    }
-                        .pw-action-world-proper-line {
-                            position: relative;
-                            top: 0px;
-                            right: 0px;
-                            color: hsl(215, 100%, 90%);
-                        }
-        .page-team {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-            .pt-content, .pt-background {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 60px 30px;
-                border: 0px solid red;  /*TEST*/
-            }
-            .pt-content {
-                width: 50%;
-                background-image: linear-gradient(to right, rgb(60,60,60), rgb(90,90,90));
-                overflow-y: scroll;
-            }
-                .pt-content-title {
-                    width: 100%;
-                    height: auto;
-                    margin-bottom: 40px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    color: rgba(255,255,255,0.5);
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size: 425%;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                }
-                .pt-content-worker {
-                    width: 250px;
-                    height: 325px;
-                    position: relative;
-                    left: 0px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: center;
-                    background-image: linear-gradient(to right, rgb(180,180,180) 0%, 9%, rgb(220,220,220) 90%);
-                    box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);
-                    perspective: 1200px;  /*PERSPECTIVE*/
-                    z-index: 1;
-                    transition-duration: 0.75s;
-                }
-                .pt-content-worker:nth-child(1n) {
-                    margin-bottom: 45px;
-                }
-                .pt-content-worker:nth-child(5) {
-                    margin-bottom: 0px;
-                }
-                .pt-content-worker::before {
-                    content: '';
-                    width: 100%;
-                    height: 100%;
-                    display: none;
-                    position: absolute;
-                    left: -100%;
-                    top: 0px;
-                }
-                .pt-content-worker:hover::before {  /*Alternetywa na niemożność użycia z-index w tym kontekście:*/
-                    display: flex;
-                }
-                    .pt-content-worker-image {
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        backface-visibility: hidden;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-size: 100% 100%;
-                        transform-style: preserve-3d;
-                        transform: rotateY(0deg);
-                        transform-origin: left;
-                        transition-duration: 0.75s;
-                        z-index: 3;
-                    }
-                    .ptcwi-1 {
-                        background-image: url(image/beard-5216821_640.jpg);
-                    }
-                    .ptcwi-2 {
-                        background-image: url(image/man-314424_640.jpg);
-                    }
-                    .ptcwi-3 {
-                        background-image: url(image/business-woman-2071334_640.jpg);
-                    }
-                    .ptcwi-4 {
-                        background-image: url(image/business-suit-4818752_640.jpg);
-                    }
-                    .pt-content-worker-backface {
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        background-image: linear-gradient(to right, rgb(180,180,180) 0%, 9%, rgb(220,220,220) 90%);
-                        box-shadow: -0.5px 0px 3px 0px rgba(60,60,60,0.5);
-                        transform-style: preserve-3d;
-                        transform: rotateY(0deg);
-                        transform-origin: left;
-                        transition-duration: 0.75s;
-                        z-index: 2;
-                    }
-                        .pt-content-worker-backface-image {
-                            width: 100%;
-                            height: 100%;
-                            position: absolute;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: 50%;
-                            box-shadow: 0px 0px 0px 0px black;
-                            transform: scaleX(-1);
-                            -webkit-transform: scaleX(-1);
-                            transition-duration: 0.75s;
-                        }
-                        .ptcwbi-1 {
-                            background-image: url(image/code-6127616_640.png);
-                        }
-                        .ptcwbi-2 {
-                            background-image: url(image/cloud-1835333_640.png);
-                            background-size: 60%;
-                        }
-                        .ptcwbi-3 {
-                            background-image: url(image/domain-3655918_640.png);
-                        }
-                        .ptcwbi-4 {
-                            background-image: url(image/social-media-2083456_640.png);
-                        }
-                    .pt-content-worker:hover .pt-content-worker-image, .pt-content-worker:hover .pt-content-worker-backface {
-                        transform: rotateY(-180deg);
-                        transition-duration: 0.75s;
-                    }
-                    .pt-content-worker:hover .pt-content-worker-backface {
-                        /*box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);*/
-                        box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.5);
-                        transition-duration: 0.75s;
-                    }
-                    .pt-content-worker:hover {
-                        left: 125px;
-                        transition-duration: 0.75s;
-                    }
-                    .pt-worker-inside-content {
-                        padding: 0px 25px;
-                        background-image: inherit;
-                        z-index: 2;
-                    }
-                        .pt-worker-name {
-                            width: 100%;
-                            height: 45px;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: center;
-                            align-items: flex-end;
-                            color: hsl(215, 100%, 29%);
-                            font-family: Arial, Helvetica, sans-serif;
-                            font-size: 125%;
-                            font-weight: 600;
-                            text-transform: capitalize;
-                        }
-                        .pt-worker-job {
-                            width: 100%;
-                            height: 28px;
-                            margin-top: 4px;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: center;
-                            align-items: flex-start;
-                            color: rgb(20,20,20);
-                            font-family: Arial, Helvetica, sans-serif;
-                            font-size: 100%;
-                            font-weight: 600;
-                        }
-                        .pt-worker-desc {
-                            width: 100%;
-                            height: calc(325px - 40px - 50px);
-                            font-family: Arial, Helvetica, sans-serif;
-                            font-size: 14px;
-                            font-weight: 500;
-                            text-align: justify;
-                            border: 0px solid red;  /*TEST*/
-                        }
-            .pt-background {
-                width: 50%;
-                background-image: linear-gradient(to right, rgb(90,90,90), rgb(60,60,60));
-            }
-            .pt-content::-webkit-scrollbar {
-                width: 7px;
-                background-color: transparent;
-            }
-            .pt-content::-webkit-scrollbar-thumb {
-                width: 7px;
-                background-color: rgba(20,20,20,0.25);
-                transition-duration: 0.5s;
-            }
-        .page-products {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            perspective: 300px;
-        }
-            .product-cube-box {
-                width: 200px;
-                height: 200px;
-                background-color: red;
-                border: 3px solid black;
-                transform: rotateX(70deg);
-                transform-style: preserve-3d;
-                perspective: 200px;
-                transition-duration: 1s;
-            }
-            .product-cube-box:hover {
-                transform: rotateX(35deg);
-                transition-duration: 1s;
-            }
-}
+    <script src="code-maker.js"></script>
+</body>
+</html>
