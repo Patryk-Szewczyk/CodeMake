@@ -3,4 +3,4 @@ CodoMake is huge company's website, which specialize in programming aplications,
 
 Link: https://patryk-szewczyk.github.io/CodeMake/code-make.html
 
-WARNING: Work with the project is paused!
+WARNING: This project is production!
