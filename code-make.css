@@ -227,7 +227,7 @@ body {
 
 }
 
-@media only screen and (min-width: 1000px) {  /*DESKTOP*/
+@media only screen and (min-width: 1130px) {  /*DESKTOP*/
     .cookie-box {
         width: 400px;
         height: auto;
@@ -740,10 +740,6 @@ body {
                             text-align: justify;
                             border: 0px solid red;  /*TEST*/
                         }
-            .pt-background {
-                width: 50%;
-                background-image: linear-gradient(to right, rgb(90,90,90), rgb(60,60,60));
-            }
             .pt-content::-webkit-scrollbar {
                 width: 7px;
                 background-color: transparent;
@@ -753,6 +749,94 @@ body {
                 background-color: rgba(20,20,20,0.25);
                 transition-duration: 0.5s;
             }
+            .pt-background {
+                width: 50%;
+                background-image: linear-gradient(to right, rgb(90,90,90), rgb(60,60,60));
+            }
+            :root {
+                --cloud-bgcolor: rgb(205,205,205);
+            }
+            .cloud-box {
+                width: auto;
+                height: auto;
+                margin-top: 100px;
+                position: relative;
+                z-index: 2;
+            }
+                .cloud-graphics-element-group {
+                    width: 400px;
+                    height: 120px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    background-color: var(--cloud-bgcolor);
+                    border-radius: 120px;
+                }
+                .cloud-graphics-element {
+                    background-color: inherit;
+                }
+                .cloud-graphics-element:nth-child(1) {
+                    width: 200px;
+                    height: 120px;
+                    position: absolute;
+                    top: -35px;
+                    left: -55px;
+                    border-radius: 80px;
+                    border: 0px solid red;  /*TEST*/
+                }
+                .cloud-graphics-element:nth-child(2) {
+                    width: 200px;
+                    height: 100px;
+                    position: absolute;
+                    top: -20px;
+                    right: -45px;
+                    border-radius: 70px;
+                    border: 0px solid red;  /*TEST*/
+                }
+                .cloud-graphics-element:nth-child(3) {
+                    width: 200px;
+                    height: 200px;
+                    position: absolute;
+                    top: -85px;
+                    left: -10px;
+                    border-radius: 200px;
+                    border: 0px solid red;  /*TEST*/
+                }
+                .cloud-graphics-element:nth-child(4) {
+                    width: 150px;
+                    height: 150px;
+                    position: absolute;
+                    top: -55px;
+                    right: -5px;
+                    border-radius: 200px;
+                    border: 0px solid red;  /*TEST*/
+                }
+                .cloud-graphics-element:nth-child(5) {
+                    width: 210px;
+                    height: 210px;
+                    position: absolute;
+                    top: -90px;
+                    right: 80px;
+                    border-radius: 200px;
+                    border: 0px solid red;  /*TEST*/
+                }
+                .cloud-rain-box {
+                    width: 340px;
+                    position: relative;
+                    display: flex;
+                    z-index: 1;
+                }
+                    .cloud-rain-drop {
+                        margin: 0 2px;
+                        position: absolute;
+                        top: 0px;
+                        width: 10px;
+                        height: 10px;
+                        background-color: rgb(133, 188, 239);
+                        border-radius: 50%;
+                    }
         .page-products {
             display: flex;
             flex-direction: column;
