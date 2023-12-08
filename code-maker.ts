@@ -32,9 +32,9 @@ const pageIntro_OBJ: {
 } = {
     DESKTOP_contentCol_AR: [],
     active_AEL() {
-        if (window.innerWidth < 1000) {
+        if (window.innerWidth < 1130) {
             //
-        } else if (window.innerWidth >= 1000) {
+        } else if (window.innerWidth >= 1130) {
             // Desktop navbar:
             const DESKTOP_navbar: HTMLDivElement = document.querySelector('nav.navbar-desktop');
             // Desktop content:
@@ -327,7 +327,7 @@ const pageTransforms_OBJ: {
         ['load', 'resize'].forEach((ev) => {
             window.addEventListener(ev, () => {
                 this.pageWidth = window.innerWidth;
-                if (this.pageWidth < 1000 && this.isMobile === false) {   /// Boolean'y są tutaj zabezpieczeniem przed niechcianym powtarzaniem się wywoływania funkcji:
+                if (this.pageWidth < 1130 && this.isMobile === false) {   /// Boolean'y są tutaj zabezpieczeniem przed niechcianym powtarzaniem się wywoływania funkcji:
                     // MOBILE
                     this.isMobile = true;
                     this.isDesktop = false;
@@ -335,7 +335,7 @@ const pageTransforms_OBJ: {
                     const video_EL = elements[0];
                     video_EL.style.display = 'none';
                     video_EL.pause();
-                } else if (this.pageWidth >= 1000 && this.isDesktop === false) {
+                } else if (this.pageWidth >= 1130 && this.isDesktop === false) {
                     // DESKTOP
                     this.isDesktop = true;
                     this.isMobile = false;
@@ -352,9 +352,10 @@ const pageTransforms_OBJ: {
 pageTransforms_OBJ.transform_AEL();
 
 const pages_OBJ: {
-    firstPage: Function
+    page_Team_Workers: Function,
+    page_Team_Cloud: Function
 } = {
-    firstPage() {
+    page_Team_Workers() {
         const actionWorld_EL: HTMLDivElement = document.querySelector('div.pw-action-world-proper');
         const blinkLine: HTMLDivElement = document.querySelector('div.pw-action-world-proper-line');
         let word_DB: string[] = [
@@ -413,14 +414,45 @@ const pages_OBJ: {
         // Blinking:
         let isVisible: boolean = true;
         setInterval(() => {
-                if (isVisible === true) {
-                    isVisible = false;
-                    blinkLine.style.visibility = 'hidden';
-                } else {
-                    isVisible = true;
-                    blinkLine.style.visibility = 'visible';
-                }
+            if (isVisible === true) {
+                isVisible = false;
+                blinkLine.style.visibility = 'hidden';
+            } else {
+                isVisible = true;
+                blinkLine.style.visibility = 'visible';
+            }
         }, 500);
+    },
+    page_Team_Cloud() {
+        // Creating rain
+        setInterval(() => {
+            const clout_Box: HTMLDivElement = document.querySelector('div.cloud-box');
+            const rain_Container: HTMLDivElement = document.querySelector('div.cloud-rain-box');
+            const rain_EL: HTMLDivElement = document.createElement('div');
+            rain_EL.setAttribute('class', 'cloud-rain-drop');
+            rain_Container.appendChild(rain_EL);
+            let rain_Container_WIDTH: number = rain_Container.getBoundingClientRect().width;
+            rain_EL.style.left = Math.floor(Math.random() * rain_Container_WIDTH) + 'px';
+            rain_EL.style.top = window.innerHeight + 'px';
+            rain_EL.style.transitionDuration = 3 + 's';
+        }, 100);
+        const rainGroup_TOP: any = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
+        let targetTop = window.innerHeight - rainGroup_TOP - 100;
+        window.addEventListener('resize', () => {
+            targetTop = window.innerHeight - rainGroup_TOP - 100;
+        }, false);
+        setInterval(() => {
+            const rainDrop_AR: HTMLDivElement[] = [];
+            const rainDrop_LENGTH: number = document.querySelectorAll('div.cloud-rain-drop').length;
+            for (let i: number = 0; i < rainDrop_LENGTH; i++) {   // Wkładanie wszystkich AKTUALNIE istniejących "kropel" do tablicy.
+                rainDrop_AR[i] = document.querySelector('div.cloud-rain-drop');
+                const rainDrop_TOP = rainDrop_AR[i].getBoundingClientRect().top;    // Pobranie lokalicacji kropel od góry.
+                if (rainDrop_TOP >= targetTop) {   // Sprawdzenie czy dana kropla zanjdują się poniżej limitu ich istnienia (granica).
+                    rainDrop_AR[i].remove();   // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
+                }
+            }
+        }, 10);
     }
 };
-pages_OBJ.firstPage();
+pages_OBJ.page_Team_Workers();
+pages_OBJ.page_Team_Cloud();
