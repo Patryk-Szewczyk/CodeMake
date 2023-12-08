@@ -24,10 +24,10 @@ var pageIntro_OBJ = {
     DESKTOP_contentCol_AR: [],
     active_AEL: function () {
         var _this = this;
-        if (window.innerWidth < 1000) {
+        if (window.innerWidth < 1130) {
             //
         }
-        else if (window.innerWidth >= 1000) {
+        else if (window.innerWidth >= 1130) {
             // Desktop navbar:
             var DESKTOP_navbar_1 = document.querySelector('nav.navbar-desktop');
             // Desktop content:
@@ -338,7 +338,7 @@ var pageTransforms_OBJ = {
         ['load', 'resize'].forEach(function (ev) {
             window.addEventListener(ev, function () {
                 _this.pageWidth = window.innerWidth;
-                if (_this.pageWidth < 1000 && _this.isMobile === false) { /// Boolean'y są tutaj zabezpieczeniem przed niechcianym powtarzaniem się wywoływania funkcji:
+                if (_this.pageWidth < 1130 && _this.isMobile === false) { /// Boolean'y są tutaj zabezpieczeniem przed niechcianym powtarzaniem się wywoływania funkcji:
                     // MOBILE
                     _this.isMobile = true;
                     _this.isDesktop = false;
@@ -347,7 +347,7 @@ var pageTransforms_OBJ = {
                     video_EL.style.display = 'none';
                     video_EL.pause();
                 }
-                else if (_this.pageWidth >= 1000 && _this.isDesktop === false) {
+                else if (_this.pageWidth >= 1130 && _this.isDesktop === false) {
                     // DESKTOP
                     _this.isDesktop = true;
                     _this.isMobile = false;
@@ -363,7 +363,7 @@ var pageTransforms_OBJ = {
 };
 pageTransforms_OBJ.transform_AEL();
 var pages_OBJ = {
-    firstPage: function () {
+    page_Team_Workers: function () {
         var actionWorld_EL = document.querySelector('div.pw-action-world-proper');
         var blinkLine = document.querySelector('div.pw-action-world-proper-line');
         var word_DB = [
@@ -430,6 +430,37 @@ var pages_OBJ = {
                 blinkLine.style.visibility = 'visible';
             }
         }, 500);
+    },
+    page_Team_Cloud: function () {
+        // Creating rain
+        setInterval(function () {
+            var clout_Box = document.querySelector('div.cloud-box');
+            var rain_Container = document.querySelector('div.cloud-rain-box');
+            var rain_EL = document.createElement('div');
+            rain_EL.setAttribute('class', 'cloud-rain-drop');
+            rain_Container.appendChild(rain_EL);
+            var rain_Container_WIDTH = rain_Container.getBoundingClientRect().width;
+            rain_EL.style.left = Math.floor(Math.random() * rain_Container_WIDTH) + 'px';
+            rain_EL.style.top = window.innerHeight + 'px';
+            rain_EL.style.transitionDuration = 3 + 's';
+        }, 100);
+        var rainGroup_TOP = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
+        var targetTop = window.innerHeight - rainGroup_TOP - 100;
+        window.addEventListener('resize', function () {
+            targetTop = window.innerHeight - rainGroup_TOP - 100;
+        }, false);
+        setInterval(function () {
+            var rainDrop_AR = [];
+            var rainDrop_LENGTH = document.querySelectorAll('div.cloud-rain-drop').length;
+            for (var i = 0; i < rainDrop_LENGTH; i++) { // Wkładanie wszystkich AKTUALNIE istniejących "kropel" do tablicy.
+                rainDrop_AR[i] = document.querySelector('div.cloud-rain-drop');
+                var rainDrop_TOP = rainDrop_AR[i].getBoundingClientRect().top; // Pobranie lokalicacji kropel od góry.
+                if (rainDrop_TOP >= targetTop) { // Sprawdzenie czy dana kropla zanjdują się poniżej limitu ich istnienia (granica).
+                    rainDrop_AR[i].remove(); // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
+                }
+            }
+        }, 10);
     }
 };
-pages_OBJ.firstPage();
+pages_OBJ.page_Team_Workers();
+pages_OBJ.page_Team_Cloud();
