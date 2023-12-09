@@ -425,33 +425,45 @@ const pages_OBJ: {
     },
     page_Team_Cloud() {
         // Creating rain
+        const rainGroup_TOP: number = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
+        let targetTop: number = window.innerHeight - rainGroup_TOP - 340;
+        window.addEventListener('resize', () => {
+            targetTop = window.innerHeight - rainGroup_TOP - 340;
+        }, false);
         setInterval(() => {
-            const clout_Box: HTMLDivElement = document.querySelector('div.cloud-box');
+            let rainDuration: number = 2500;
             const rain_Container: HTMLDivElement = document.querySelector('div.cloud-rain-box');
             const rain_EL: HTMLDivElement = document.createElement('div');
             rain_EL.setAttribute('class', 'cloud-rain-drop');
             rain_Container.appendChild(rain_EL);
+            const rainSplash_EL: HTMLDivElement = document.createElement('div');
+            rainSplash_EL.setAttribute('class', 'cloud-rain-drop-splash');
+            rain_EL.appendChild(rainSplash_EL);
             let rain_Container_WIDTH: number = rain_Container.getBoundingClientRect().width;
             rain_EL.style.left = Math.floor(Math.random() * rain_Container_WIDTH) + 'px';
-            rain_EL.style.top = window.innerHeight + 'px';
-            rain_EL.style.transitionDuration = 3 + 's';
-        }, 100);
-        const rainGroup_TOP: any = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
-        let targetTop = window.innerHeight - rainGroup_TOP - 100;
-        window.addEventListener('resize', () => {
-            targetTop = window.innerHeight - rainGroup_TOP - 100;
-        }, false);
-        setInterval(() => {
-            const rainDrop_AR: HTMLDivElement[] = [];
-            const rainDrop_LENGTH: number = document.querySelectorAll('div.cloud-rain-drop').length;
-            for (let i: number = 0; i < rainDrop_LENGTH; i++) {   // Wkładanie wszystkich AKTUALNIE istniejących "kropel" do tablicy.
-                rainDrop_AR[i] = document.querySelector('div.cloud-rain-drop');
-                const rainDrop_TOP = rainDrop_AR[i].getBoundingClientRect().top;    // Pobranie lokalicacji kropel od góry.
-                if (rainDrop_TOP >= targetTop) {   // Sprawdzenie czy dana kropla zanjdują się poniżej limitu ich istnienia (granica).
-                    rainDrop_AR[i].remove();   // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
-                }
+            {
+                rain_EL.style.top = String(targetTop) + 'px';
+                rain_EL.style.transitionTimingFunction = "linear";
+                rain_EL.style.transitionDuration = String(rainDuration) + "ms";
             }
-        }, 10);
+            setTimeout(() => {
+                rain_EL.style.width = "6px"
+                rain_EL.style.height = "0px"
+                rain_EL.style.transitionDuration = "0.1s";
+                rainSplash_EL.style.width = "30px";
+                rainSplash_EL.style.height = "8px";
+                rainSplash_EL.style.transitionDuration = "0.2s";
+                setTimeout(() => {
+                    rainSplash_EL.style.width = "0px";
+                    rainSplash_EL.style.height = "0px";
+                    rainSplash_EL.style.opacity = "0.0";
+                    rainSplash_EL.style.transitionDuration = "0.75s";
+                    setTimeout(() => {
+                        rain_EL.remove();   // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
+                    }, 750);
+                }, 200);
+            }, rainDuration);
+        }, 25);
     }
 };
 pages_OBJ.page_Team_Workers();
