@@ -3,7 +3,7 @@
 
 :root {
     --navbar-color: rgb(20,20,20);
-    --main-theme: rgb(0, 104, 250)
+    --main-theme: rgb(0,104,250)
 }
 
 * {
@@ -293,7 +293,7 @@ body {
         }
         .cookie-accept:hover {
             cursor: pointer;
-            background-color: var(--main-theme);
+            background-color: hsl(215, 100%, 59%);
         }
         .cookie-about {
             background-color: transparent;
@@ -825,6 +825,7 @@ body {
                 .cloud-rain-box {
                     width: 340px;
                     position: relative;
+                    top: -20px;
                     display: flex;
                     z-index: 1;
                 }
@@ -832,11 +833,21 @@ body {
                         margin: 0 2px;
                         position: absolute;
                         top: 0px;
-                        width: 10px;
-                        height: 10px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        width: 6px;
+                        height: 12px;
                         background-color: rgb(133, 188, 239);
-                        border-radius: 50%;
+                        border-radius: 100%;
                     }
+                        .cloud-rain-drop-splash {
+                            width: 6px;
+                            height: 12px;
+                            position: absolute;
+                            background-color: inherit;
+                            border-radius: 100%;
+                        }
         .page-products {
             display: flex;
             flex-direction: column;
