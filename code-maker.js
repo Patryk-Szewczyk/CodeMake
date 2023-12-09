@@ -433,33 +433,45 @@ var pages_OBJ = {
     },
     page_Team_Cloud: function () {
         // Creating rain
+        var rainGroup_TOP = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
+        var targetTop = window.innerHeight - rainGroup_TOP - 340;
+        window.addEventListener('resize', function () {
+            targetTop = window.innerHeight - rainGroup_TOP - 340;
+        }, false);
         setInterval(function () {
-            var clout_Box = document.querySelector('div.cloud-box');
+            var rainDuration = 2500;
             var rain_Container = document.querySelector('div.cloud-rain-box');
             var rain_EL = document.createElement('div');
             rain_EL.setAttribute('class', 'cloud-rain-drop');
             rain_Container.appendChild(rain_EL);
+            var rainSplash_EL = document.createElement('div');
+            rainSplash_EL.setAttribute('class', 'cloud-rain-drop-splash');
+            rain_EL.appendChild(rainSplash_EL);
             var rain_Container_WIDTH = rain_Container.getBoundingClientRect().width;
             rain_EL.style.left = Math.floor(Math.random() * rain_Container_WIDTH) + 'px';
-            rain_EL.style.top = window.innerHeight + 'px';
-            rain_EL.style.transitionDuration = 3 + 's';
-        }, 100);
-        var rainGroup_TOP = document.querySelector('div.cloud-rain-box').getBoundingClientRect().top;
-        var targetTop = window.innerHeight - rainGroup_TOP - 100;
-        window.addEventListener('resize', function () {
-            targetTop = window.innerHeight - rainGroup_TOP - 100;
-        }, false);
-        setInterval(function () {
-            var rainDrop_AR = [];
-            var rainDrop_LENGTH = document.querySelectorAll('div.cloud-rain-drop').length;
-            for (var i = 0; i < rainDrop_LENGTH; i++) { // Wkładanie wszystkich AKTUALNIE istniejących "kropel" do tablicy.
-                rainDrop_AR[i] = document.querySelector('div.cloud-rain-drop');
-                var rainDrop_TOP = rainDrop_AR[i].getBoundingClientRect().top; // Pobranie lokalicacji kropel od góry.
-                if (rainDrop_TOP >= targetTop) { // Sprawdzenie czy dana kropla zanjdują się poniżej limitu ich istnienia (granica).
-                    rainDrop_AR[i].remove(); // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
-                }
+            {
+                rain_EL.style.top = String(targetTop) + 'px';
+                rain_EL.style.transitionTimingFunction = "linear";
+                rain_EL.style.transitionDuration = String(rainDuration) + "ms";
             }
-        }, 10);
+            setTimeout(function () {
+                rain_EL.style.width = "6px";
+                rain_EL.style.height = "0px";
+                rain_EL.style.transitionDuration = "0.1s";
+                rainSplash_EL.style.width = "30px";
+                rainSplash_EL.style.height = "8px";
+                rainSplash_EL.style.transitionDuration = "0.2s";
+                setTimeout(function () {
+                    rainSplash_EL.style.width = "0px";
+                    rainSplash_EL.style.height = "0px";
+                    rainSplash_EL.style.opacity = "0.0";
+                    rainSplash_EL.style.transitionDuration = "0.75s";
+                    setTimeout(function () {
+                        rain_EL.remove(); // Usuwanie tej kropli, która znajduje się poniżej miejsca jej istnienia.
+                    }, 750);
+                }, 200);
+            }, rainDuration);
+        }, 25);
     }
 };
 pages_OBJ.page_Team_Workers();
