@@ -891,7 +891,7 @@ body {
                 position: absolute;
                 transform-style: preserve-3d;
                 transform: rotateX(0deg);
-                transition-duration: 1s;
+                transition-duration: 0.7s;
             }
                 .pc-content-box-front, .pc-content-box-back {
                     width: 100%;
@@ -901,7 +901,7 @@ body {
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
-                    background-color: rgb(235,235,235);  /*Kolory zrób w oddzielnych blokach na danych blokach-stronach!*/
+                    background-color: rgb(220,220,220);  /*Kolory zrób w oddzielnych blokach na danych blokach-stronach!*/
                     font-size: 300%;  /*Tymczasowy font-size!*/
                     border-radius: 7px;
                     box-shadow: -3px -3px 20px 0px rgba(0,0,0,0.5), 3px 3px 20px 0px rgba(255,255,255,0.25), inset 3px 3px 10px 1px rgba(0,0,0,0.3), inset -3px -3px 10px 1px rgba(0,0,0,0.3);
@@ -921,6 +921,6 @@ body {
                 }
             .pc-contect-box:hover .pc-rotate-box {
                 transform: rotateX(180deg);
-                transition-duration: 1s;
+                transition-duration: 0.7s;
             }
 }
